@@ -4,7 +4,7 @@ subtitle: "This is my very first post in my brand new React based (Gatsby) blog!
 date: "2019-05-07"
 update: "2020-01-01"
 image: "/blog/hello-world.png"
-tags: 
+tags: ['gatsby']
 ---
 
 This is my first MD post file. I will do a new blog based in Gatsby and Markdown served via Github.
