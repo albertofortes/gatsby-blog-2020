@@ -14,7 +14,7 @@ class Header extends React.Component {
   }
 
   render () {
-    const { siteTitle, siteRole, siteDescription } = this.props
+    const { siteTitle } = this.props
 
     return (
       <header className="header">

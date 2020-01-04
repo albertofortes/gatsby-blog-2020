@@ -13,7 +13,7 @@ export default ({ data }) => {
           <h3 className="article__subtitle">{post.frontmatter.subtitle}</h3>
           <p className="article__date">{post.frontmatter.date}</p>
           <p className="article__tags">Tags: {post.frontmatter.tags.map((tag, i) => [
-              <Link to={`/blog/tags/${kebabCase(tag)}/`}>
+              <Link key={tag} to={`/blog/tags/${kebabCase(tag)}/`}>
                 {tag}{i < post.frontmatter.tags.length - 1 ? ', ' : ''}
               </Link>
               

@@ -33,11 +33,13 @@ class HeaderHome extends React.Component {
   canvasSize() {
     var wrap = document.getElementById('wrap');
     var who = document.getElementsByClassName('who');
-
-    this.setState({
-      headerWidth: wrap.offsetWidth,
-      headerHeight: wrap.offsetHeight - who[0].offsetHeight,
-    })
+    
+    if (wrap) {
+      this.setState({
+        headerWidth: wrap.offsetWidth,
+        headerHeight: wrap.offsetHeight - who[0].offsetHeight,
+      })
+    }
   }
 
   snakeGame() {
@@ -92,12 +94,6 @@ class HeaderHome extends React.Component {
       : (willEat(state)
         ? [nextHead(state)].concat(state.snake)
         : [nextHead(state)].concat(dropLast(state.snake)));
-
-    // Randomness
-    /*const rndPos = table => ({
-      x: rnd(0)(table.cols - 1),
-      y: rnd(0)(table.rows - 1)
-    });*/
 
     const rndPos = function(table) {
       this.setState({
@@ -194,9 +190,13 @@ class HeaderHome extends React.Component {
           <div className="who">
             <h1>Hola, I'm <strong>{siteTitle}</strong>,</h1>
             <h2>{siteRole}</h2>
-            <div className="who--desc" dangerouslySetInnerHTML={{ __html: siteDescription }} />
-            <p className="who--links">
+            <div className="who__desc" dangerouslySetInnerHTML={{ __html: siteDescription }} />
+            <p className="who__links">
+              <a href="https://www.linkedin.com/in/albertofortes">Linkedin</a>
+              <a href="https://dribbble.com/albertofortes">Dribble</a>
+              <a href="https://twitter.com/albertofs">Twitter</a>
               <Link to="/blog/">Go to Blog</Link>
+              <a href="mailto:albertofortes@gmail.com">Email</a>
             </p>
           </div>
           <canvas id="snake-canvas" width={this.state.headerWidth} height={this.state.headerHeight}></canvas>

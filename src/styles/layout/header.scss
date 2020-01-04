@@ -34,6 +34,16 @@
     a {
       color: $secondary-color;
     }
+
+    .who__links {
+      a {
+        margin-right: 1rem;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
   }
 
   h1 {

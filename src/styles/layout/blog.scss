@@ -53,6 +53,9 @@
 }
 
 article.article {
+  max-width: 1000px;
+  margin: 0 auto;
+
   .article__title {
     margin: 0;
     font: normal $dpFontWeightMedium 2.7rem/1.25 $secondaryFont;
@@ -128,6 +131,10 @@ article.article {
 
     em, i {
       font-style: italic;
+    }
+
+    code {
+      font-family: normal 400 1.4rem/1.25 "Lucida Console", Monaco, monospace;
     }
   }
 }
