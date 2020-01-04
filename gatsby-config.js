@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: "/gatsby-blog-2020",
+  //pathPrefix: "/gatsby-blog-2020",
   siteMetadata: {
     title: `Alberto Fortes`,
     role: `Front-end developer building cool websites and apps for Avallain and Warner Music Spain.`,
