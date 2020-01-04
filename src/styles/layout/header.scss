@@ -1,0 +1,131 @@
+.header-home {
+  font: normal 100 1.7rem $primaryFont;  
+  color: #fff;
+  background-color: $headerColor;
+  background-attachment: fixed;
+  border: 2rem solid darken($headerColor, 5%);
+  padding: 2rem;
+  box-sizing: border-box;
+
+  @media only screen and (min-width: $breakpoint-md) {
+    height: 100vh;
+  }
+
+  display: block;
+  z-index: 1;
+  
+  .who {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 1;
+    position: relative;
+
+    p {
+      margin-bottom: 1.4rem;
+
+      &:last-child {
+        //margin-bottom: 0;
+      }
+    }
+
+    a {
+      color: $secondary-color;
+    }
+  }
+
+  h1 {
+    font: normal 400 2.7rem $primaryFont;
+    margin: 0 0 1rem;
+  }
+
+  h2 {
+    font: normal 700 2rem $primaryFont;
+    margin: 0 0 1rem;
+    color: $secondary-color;
+  }
+
+  .wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+
+    .score-board {
+      display: none;
+      position: absolute;
+      top: 2rem;
+      right: 4rem;
+      color: darken($headerColor, 5%);
+      font: normal 700 5rem $primaryFont;
+
+      @media only screen and (min-width: $breakpoint-md) {
+        display: block;
+      }
+    }
+  }
+} // .header-home
+
+.header {
+  font: normal 100 1.7rem $primaryFont;
+  color: $headerColor;
+  background-color: #fff;
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  .header__logo {
+    font-size: 2rem;
+    font-weight: 500;
+
+    a {
+      text-decoration: none;
+      color: $headerColor;
+    }
+  }
+
+  .header__container {
+    font: normal 700 2rem $primaryFont;
+    margin: 0 0 1rem;
+  }
+
+  .header__nav {
+    > ul {
+      display: inline;
+
+      > li {
+        display: inline-block;
+
+        > a {
+          display: inline-block;
+          padding: 0 1rem;
+          text-decoration: none;
+          color: $primary-color;
+
+          &.active {
+            background-color: $secondary-color;
+            color: $headerColor;
+          }
+        }
+      }
+    }
+  }
+} //header
+
+#snake-canvas {
+  display: none;
+
+  @media only screen and (min-width: $breakpoint-md) {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    right: 2rem;
+    bottom: 50%;
+    z-index: 0;
+  }
+}

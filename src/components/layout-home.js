@@ -9,12 +9,12 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
+import HeaderHome from "./header-home.js"
 import "./layout.css"
 
-const Layout = ({ children }) => {
+const LayoutHome = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query HeaderQuery {
+    query HeaderHomeQuery {
       site {
         siteMetadata {
           title
@@ -27,25 +27,17 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header className="header" 
+      <HeaderHome 
         siteTitle={data.site.siteMetadata.title}
         siteRole={data.site.siteMetadata.role}
         siteDescription={data.site.siteMetadata.description}
       />
-      <div className="container">
-        {children}
-      </div>
-      <footer className="footer">
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
     </>
   )
 }
 
-Layout.propTypes = {
+LayoutHome.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default LayoutHome

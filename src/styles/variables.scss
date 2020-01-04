@@ -1,0 +1,16 @@
+//
+// Color schema
+$primary-color: #0061aa; // rgba(0, 97, 170)
+$secondary-color: #ffe600;
+$headerColor: #2D303C;
+
+//
+// responsive mobile first (based in Bootstrap 4 just due to very common)
+$breakpoint-sm:         576px;
+$breakpoint-md:         768px;
+$breakpoint-lg:         992px;
+$breakpoint-xl:         1200px;
+
+//
+// Layout
+$columnSeparation:     20px;

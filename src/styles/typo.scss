@@ -1,0 +1,20 @@
+//
+// typography
+
+$typefacePrimary:      Metropolis, sans-serif;
+$dpFontWeightRegular:  400;
+$dpFontWeightMedium:   500;
+$dpFontWeightBold:     700;
+
+$primaryFont: 'source sans pro', sans-serif;
+$secondaryFont: 'PT Serif', serif;
+
+// 0,1,1,2,3,5,8,13,21,34,55,
+
+:root {
+  font-size: 62.5%;
+  body {
+    font-size: 1.6rem;
+    font-family: $primaryFont;
+  }
+}

@@ -1,0 +1,133 @@
+.posts {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media only screen and (min-width: $breakpoint-sm) {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2rem;
+  }
+
+  @media only screen and (min-width: $breakpoint-md) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .post {
+    margin: 0 0 2rem;
+    width: 100%;
+    box-sizing: border-box;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .post__title {
+      margin: 0 1rem .5rem 0;
+      font-weight: 500;
+
+      a {
+        color: $primary-color;
+        text-decoration: none;
+
+        &:hover {
+          background-color: $secondary-color;
+        }
+      }
+    }
+
+    .post__image {
+      width: 100%;
+      margin: 0 0 .5rem;
+    }
+
+    .post__date {
+      margin: 0 1rem .5rem 0;
+      color: #666;
+      font-size: 1.25rem;
+    }
+
+    .post__excerpt {
+      margin: 0 1rem 0 0;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+article.article {
+  .article__title {
+    margin: 0;
+    font: normal $dpFontWeightMedium 2.7rem/1.25 $secondaryFont;
+
+    @media only screen and (min-width: $breakpoint-md) {
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+  }
+
+  .article__subtitle {
+    color: #666;
+    margin: 0 0 .5rem;
+    font: normal $dpFontWeightMedium 2rem/1.25 $primaryFont;
+    font-style: italic;
+
+    @media only screen and (min-width: $breakpoint-md) {
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+  }
+
+  .article__date {
+    margin: 0 0 2rem;
+    font: normal $dpFontWeightMedium 1.4rem/1 $primaryFont;
+
+    @media only screen and (min-width: $breakpoint-md) {
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+  }
+
+  .article__tags {
+    margin: 0 0 2rem;
+    font: normal $dpFontWeightMedium 1.4rem/1 $primaryFont;
+
+    @media only screen and (min-width: $breakpoint-md) {
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+  }
+
+  .article__image {
+    margin: 0 0 3rem;
+    width: 100%;
+
+    > img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .article__cont {
+    margin: 0;
+    color: $headerColor;
+    font: normal $dpFontWeightMedium 1.8rem/1.5 $secondaryFont;
+
+    @media only screen and (min-width: $breakpoint-md) {
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+
+    p, ul, ol, dl, code, pre, li, blockquote, img {
+      margin-bottom: 1em;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1em;
+      font-weight: bold;
+      font-size: 120%;
+      color: #000;
+    }
+
+    em, i {
+      font-style: italic;
+    }
+  }
+}

@@ -1,42 +1,36 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import { Link } from "gatsby";
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+class Header extends React.Component {
+  constructor() {
+    super();
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+    // Define the initial state:
+    this.state = {};
+  }
 
-Header.defaultProps = {
-  siteTitle: ``,
+  componentDidMount () {
+    console.log('ComponentDidMount -->');
+  }
+
+  render () {
+    const { siteTitle, siteRole, siteDescription } = this.props
+
+    return (
+      <header className="header">
+        <h1 className="header__logo">Hola, I'm <Link to="/">{siteTitle}.</Link></h1>
+        <nav className="header__nav">
+          <ul>
+            <li><Link to="/about" activeClassName="active">About</Link></li>
+            <li><Link to="/blog/" activeClassName="active">Blog</Link></li>
+          </ul>
+        </nav>
+        {/*<div className="header__container">
+          <h2><strong>Front-end senior developer</strong> from 2006, UX/UI Engineer, working in remote, globally with companies, startups and agencies.</h2>
+        </div>*/}
+      </header>
+    )
+  }
 }
 
 export default Header
