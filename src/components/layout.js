@@ -36,9 +36,7 @@ const Layout = ({ children }) => {
         {children}
       </div>
       <footer className="footer">
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <p>2006 - {new Date().getFullYear()} Alberto Fortes. Coded with React JavaScript, GatsbyJS, HTML5, CSS / SASS, Grunt.</p>
       </footer>
     </>
   )

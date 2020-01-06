@@ -1,0 +1,43 @@
+.container {
+  font: normal 100 2.1rem $primaryFont;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  background-color: $headerColor;
+  color: $tertiary-color;
+  position: relative;
+  z-index: 1;
+  flex-grow: 2;
+
+  .container__inner {
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+
+    /*@media only screen and (min-width: $breakpoint-md) {
+      padding: 0;
+      width: 66.666%;
+      margin: 0 auto;
+    }*/
+  }
+
+  .container__title {
+    font: normal 100 erem $primaryFont;
+    margin: 0 0 2rem;
+    color: #fff;
+    text-transform: uppercase;
+
+    em {
+      font-style: italic;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    .count {
+      font-size: 85%;
+      color: $quinary-color;;
+    }
+  }
+}

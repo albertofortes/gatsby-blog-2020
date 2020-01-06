@@ -15,8 +15,6 @@ class HeaderHome extends React.Component {
   }
 
   componentDidMount () {
-    console.log('ComponentDidMount -->');
-
     window.addEventListener("scroll", function (event) {
       var scroll = this.scrollY;
       console.log(scroll);
@@ -137,7 +135,7 @@ class HeaderHome extends React.Component {
     // Game loop draw
     const draw = () => {
       // clear
-      ctx.fillStyle = '#2D303C';
+      ctx.fillStyle = '#0e2439';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // draw snake
@@ -145,7 +143,7 @@ class HeaderHome extends React.Component {
       state.snake.map(p => ctx.fillRect(x(p.x), y(p.y), x(1), y(1)));
 
       // draw apples
-      ctx.fillStyle = 'rgb(255,255,255)';
+      ctx.fillStyle = '#ed4567';
       ctx.fillRect(x(state.apple.x), y(state.apple.y), x(1), y(1));
 
       // add crash
@@ -195,6 +193,7 @@ class HeaderHome extends React.Component {
               <a href="https://www.linkedin.com/in/albertofortes">Linkedin</a>
               <a href="https://dribbble.com/albertofortes">Dribble</a>
               <a href="https://twitter.com/albertofs">Twitter</a>
+              <Link to="/about/">About me</Link>
               <Link to="/blog/">Go to Blog</Link>
               <a href="mailto:albertofortes@gmail.com">Email</a>
             </p>

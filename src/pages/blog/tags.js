@@ -1,12 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
-
-// Utilities
 import kebabCase from "lodash/kebabCase"
-
-// Components
-import { Helmet } from "react-helmet"
 import { Link, graphql } from "gatsby"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
 
 const TagsPage = ({
   data: {
@@ -16,10 +13,10 @@ const TagsPage = ({
     },
   },
 }) => (
-  <div>
-    <Helmet title={title} />
-    <div>
-      <h1>Tags</h1>
+  <Layout>
+    <SEO title="Alberto Fortes. Front-end developer working remotely for the best companies" />
+    <div className="container__inner">
+      <h2 className="container__title">Tag list:</h2>
       <ul>
         {group.map(tag => (
           <li key={tag.fieldValue}>
@@ -30,7 +27,7 @@ const TagsPage = ({
         ))}
       </ul>
     </div>
-  </div>
+  </Layout>
 )
 
 TagsPage.propTypes = {

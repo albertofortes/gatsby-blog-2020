@@ -13,8 +13,11 @@
 
   .post {
     margin: 0 0 2rem;
+    padding: 1rem;
     width: 100%;
     box-sizing: border-box;
+    color: $tertiary-color;
+    background-color: $quaternary-color;
 
     &:last-child {
       margin-bottom: 0;
@@ -25,11 +28,11 @@
       font-weight: 500;
 
       a {
-        color: $primary-color;
+        color: $quinary-color;;
         text-decoration: none;
 
         &:hover {
-          background-color: $secondary-color;
+          text-decoration: underline;
         }
       }
     }
@@ -40,8 +43,7 @@
     }
 
     .post__date {
-      margin: 0 1rem .5rem 0;
-      color: #666;
+      margin: 0 1rem 1rem 0;
       font-size: 1.25rem;
     }
 
@@ -55,10 +57,12 @@
 article.article {
   max-width: 1000px;
   margin: 0 auto;
+  color: $tertiary-color;
 
   .article__title {
     margin: 0;
-    font: normal $dpFontWeightMedium 2.7rem/1.25 $secondaryFont;
+    font: normal $dpFontWeightMedium 2.7rem/1.25 $primaryFont;
+    color: $secondary-color;
 
     @media only screen and (min-width: $breakpoint-md) {
       margin-left: 10%;
@@ -67,8 +71,8 @@ article.article {
   }
 
   .article__subtitle {
-    color: #666;
-    margin: 0 0 .5rem;
+    color: #fff;
+    margin: 0 0 1rem;
     font: normal $dpFontWeightMedium 2rem/1.25 $primaryFont;
     font-style: italic;
 
@@ -76,6 +80,12 @@ article.article {
       margin-left: 10%;
       margin-right: 10%;
     }
+  }
+
+  .article__claim {
+    color: #fff;
+    margin: 1rem 0;
+    font: normal $dpFontWeightMedium 2rem/1.25 $primaryFont;
   }
 
   .article__date {
@@ -96,6 +106,10 @@ article.article {
       margin-left: 10%;
       margin-right: 10%;
     }
+
+    a {
+      color: $quinary-color;;
+    }
   }
 
   .article__image {
@@ -110,8 +124,8 @@ article.article {
 
   .article__cont {
     margin: 0;
-    color: $headerColor;
-    font: normal $dpFontWeightMedium 1.8rem/1.5 $secondaryFont;
+    color: $tertiary-color;
+    font: normal $dpFontWeightMedium 1.8rem/1.5 $primaryFont;
 
     @media only screen and (min-width: $breakpoint-md) {
       margin-left: 10%;
@@ -126,7 +140,7 @@ article.article {
       margin-bottom: 1em;
       font-weight: bold;
       font-size: 120%;
-      color: #000;
+      color: #fff;
     }
 
     em, i {
@@ -136,5 +150,190 @@ article.article {
     code {
       font-family: normal 400 1.4rem/1.25 "Lucida Console", Monaco, monospace;
     }
+
+    a {
+      text-decoration: underline;
+      color:$tertiary-color;
+
+      &:hover {
+        color: $quinary-color;
+      }
+    }
+
+    .article__cont__cols {
+      column-count: 1;
+      column-gap: 0;
+
+      @media only screen and (min-width: $breakpoint-md) {
+        column-count: 2;
+      column-gap: 1rem;
+      }
+    }
   }
 }
+
+// Code PRISM:
+
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+ code[class*="language-"],
+ pre[class*="language-"] {
+   color: $tertiary-color;
+   background: none;
+   font: normal 1.4rem/1.5Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+   text-align: left;
+   white-space: pre;
+   word-spacing: normal;
+   word-break: normal;
+   word-wrap: normal;
+ 
+   -moz-tab-size: 4;
+   -o-tab-size: 4;
+   tab-size: 4;
+ 
+   -webkit-hyphens: none;
+   -moz-hyphens: none;
+   -ms-hyphens: none;
+   hyphens: none;
+ }
+ 
+ /* Code blocks */
+ pre[class*="language-"] {
+   padding: 1em;
+   margin: .5em 0;
+   overflow: auto;
+   border-radius: 0.3em;
+ }
+ 
+ :not(pre) > code[class*="language-"],
+ pre[class*="language-"] {
+   background: $quaternary-color;
+ }
+ 
+ /* Inline code */
+ :not(pre) > code[class*="language-"] {
+   padding: .1rem;
+   white-space: normal;
+ }
+ 
+ .token.comment,
+ .token.prolog,
+ .token.doctype,
+ .token.cdata {
+   color: slategray;
+ }
+ 
+ .token.punctuation {
+   color: #f8f8f2;
+ }
+ 
+ .namespace {
+   opacity: .7;
+ }
+ 
+ .token.property,
+ .token.tag,
+ .token.constant,
+ .token.symbol,
+ .token.deleted {
+   color: #f92672;
+ }
+ 
+ .token.boolean,
+ .token.number {
+   color: #ae81ff;
+ }
+ 
+ .token.selector,
+ .token.attr-name,
+ .token.string,
+ .token.char,
+ .token.builtin,
+ .token.inserted {
+   color: #a6e22e;
+ }
+ 
+ .token.operator,
+ .token.entity,
+ .token.url,
+ .language-css .token.string,
+ .style .token.string,
+ .token.variable {
+   color: #f8f8f2;
+ }
+ 
+ .token.atrule,
+ .token.attr-value,
+ .token.function,
+ .token.class-name {
+   color: #e6db74;
+ }
+ 
+ .token.keyword {
+   color: #66d9ef;
+ }
+ 
+ .token.regex,
+ .token.important {
+   color: #fd971f;
+ }
+ 
+ .token.important,
+ .token.bold {
+   font-weight: bold;
+ }
+ .token.italic {
+   font-style: italic;
+ }
+ 
+ .token.entity {
+   cursor: help;
+ }
+ 
+
+pre[class*="language-"].line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+	position: relative;
+	white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 1.75rem;
+	font-size: 100%;
+	left: 1.5rem !important;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+  border-right: 1px solid $primary-color;
+  color: #fff;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+
+	.line-numbers-rows > span {
+		pointer-events: none;
+		display: block;
+		counter-increment: linenumber;
+	}
+
+		.line-numbers-rows > span:before {
+			content: counter(linenumber);
+			color: #999;
+			display: block;
+			padding-right: 0.8em;
+			text-align: right;
+		}

@@ -1,10 +1,12 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../../components/layout"
+import SEO from "../../components/seo"
 
 export default ({ data }) => {
   return (
     <Layout>
+      <SEO title="Alberto Fortes. Front-end developer working remotely for the best companies" />
       <div className="container__inner">
         <h2 className="container__title">Blog posts <em>({data.allMarkdownRemark.totalCount})</em>:</h2>
         <div className="posts">

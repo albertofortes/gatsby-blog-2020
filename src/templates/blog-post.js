@@ -2,11 +2,13 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import kebabCase from "lodash/kebabCase"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 export default ({ data }) => {
   const post = data.markdownRemark
   return (
     <Layout>
+      <SEO title={post.frontmatter.title} />
       <div className="container__inner">
         <article className="article">
           <h2 className="article__title">{post.frontmatter.title}</h2>

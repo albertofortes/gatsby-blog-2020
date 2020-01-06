@@ -14,56 +14,29 @@ body {
 }
 
 .footer {
-  font: normal 100 1.2rem $primaryFont;
-  color: $headerColor;
-  background-color: #fcfcfc;
-  border-top: 1px solid #ededed;
+  text-align: center;
+  border-top: 1px solid $primary-color;
   padding: 2rem;
+  font: normal 300 1.4rem $primaryFont;
+  color: $tertiary-color;
+  background-color: $quaternary-color;
 
   a {
-    color: $headerColor;
+    color: $quinary-color;
     text-decoration: underline;
   }
 }
 
-.container {
-  font: normal 100 2.1rem $primaryFont;
-  padding: 1rem;
-  box-sizing: border-box;
-  color: $headerColor;
-  position: relative;
-  z-index: 1;
-  flex-grow: 2;
+#snake-canvas {
+  display: none;
 
-  > main {
-    background-color: #fff;
-    padding: 2rem;
-  }
-
-  .container__inner {
-    background-color: #fff;
-    padding: 1rem;
-    width: 100%;
-    box-sizing: border-box;
-    margin: 0;
-
-    /*@media only screen and (min-width: $breakpoint-md) {
-      padding: 0;
-      width: 66.666%;
-      margin: 0 auto;
-    }*/
-  }
-
-  .container__title {
-    font: normal 100 3.1rem $secondaryFont;
-    margin: 0 0 4rem;
-
-    em {
-      font-style: italic;
-    }
-
-    strong {
-      font-weight: 700;
-    }
+  @media only screen and (min-width: $breakpoint-md) {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    right: 2rem;
+    bottom: 50%;
+    z-index: 0;
   }
 }

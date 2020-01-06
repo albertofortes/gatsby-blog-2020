@@ -1,8 +1,11 @@
 //
 // Color schema
-$primary-color: #0061aa; // rgba(0, 97, 170)
+$primary-color: #0e2439; // rgba(0, 97, 170)
 $secondary-color: #ffe600;
-$headerColor: #2D303C;
+$tertiary-color: #a2b8cd;
+$quaternary-color: #1f364d;
+$quinary-color: #ed4567;
+$headerColor: $primary-color;
 
 //
 // responsive mobile first (based in Bootstrap 4 just due to very common)
@@ -13,4 +16,4 @@ $breakpoint-xl:         1200px;
 
 //
 // Layout
-$columnSeparation:     20px;
+$columnSeparation:     2rem;
