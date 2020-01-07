@@ -8,13 +8,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
 import HeaderHome from "./header-home.js"
-import "./layout.css"
 
 const LayoutHome = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query HeaderHomeQuery {
+     {
       site {
         siteMetadata {
           title

@@ -8,23 +8,21 @@ export default ({ data }) => {
   const post = data.markdownRemark
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} />
-      <div className="container__inner">
-        <article className="article">
-          <h2 className="article__title">{post.frontmatter.title}</h2>
-          <h3 className="article__subtitle">{post.frontmatter.subtitle}</h3>
-          <p className="article__date">{post.frontmatter.date}</p>
-          <p className="article__tags">Tags: {post.frontmatter.tags.map((tag, i) => [
-              <Link key={tag} to={`/blog/tags/${kebabCase(tag)}/`}>
-                {tag}{i < post.frontmatter.tags.length - 1 ? ', ' : ''}
-              </Link>
-              
-            ])}
-          </p>
-          <div className="article__image"><img src={post.frontmatter.image} alt="" /></div>
-          <div className="article__cont" dangerouslySetInnerHTML={{ __html: post.html }} />
-        </article>
-      </div>
+      <SEO title={post.frontmatter.title} description={post.frontmatter.subtitle} />
+      <article className="article">
+        <h2 className="article__title">{post.frontmatter.title}</h2>
+        <h3 className="article__subtitle">{post.frontmatter.subtitle}</h3>
+        <p className="article__date">{post.frontmatter.date}</p>
+        <p className="article__tags">Tags: {post.frontmatter.tags.map((tag, i) => [
+            <Link key={tag} to={`/blog/tags/${kebabCase(tag)}/`}>
+              {tag}{i < post.frontmatter.tags.length - 1 ? ', ' : ''}
+            </Link>
+            
+          ])}
+        </p>
+        <div className="article__image"><img src={post.frontmatter.image} alt="" /></div>
+        <div className="article__cont" dangerouslySetInnerHTML={{ __html: post.html }} />
+      </article>
     </Layout>
   )
 }

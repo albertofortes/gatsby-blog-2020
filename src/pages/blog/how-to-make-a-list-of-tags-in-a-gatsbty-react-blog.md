@@ -90,23 +90,21 @@ import Layout from "../components/layout"
 export default ({ data }) => {
   const post = data.markdownRemark
   return (
-    <Layout>
-      <div className="container__inner">
-        <article className="article">
-          <h2 className="article__title">{post.frontmatter.title}</h2>
-          <h3 className="article__subtitle">{post.frontmatter.subtitle}</h3>
-          <p className="article__date">{post.frontmatter.date}</p>
-          <p className="article__tags">Tags: {post.frontmatter.tags.map((tag, i) => [
-              <strong key={i}>
-                {tag}
-                {i < post.frontmatter.tags.length - 1 ? ', ' : ''}
-              </strong>
-            ])}
-          </p>
-          <div className="article__image"><img src={post.frontmatter.image} alt="" /></div>
-          <div className="article__cont" dangerouslySetInnerHTML={{ __html: post.html }} />
-        </article>
-      </div>
+    <Layout>s
+      <article className="article">
+        <h2 className="article__title">{post.frontmatter.title}</h2>
+        <h3 className="article__subtitle">{post.frontmatter.subtitle}</h3>
+        <p className="article__date">{post.frontmatter.date}</p>
+        <p className="article__tags">Tags: {post.frontmatter.tags.map((tag, i) => [
+            <strong key={i}>
+              {tag}
+              {i < post.frontmatter.tags.length - 1 ? ', ' : ''}
+            </strong>
+          ])}
+        </p>
+        <div className="article__image"><img src={post.frontmatter.image} alt="" /></div>
+        <div className="article__cont" dangerouslySetInnerHTML={{ __html: post.html }} />
+      </article>
     </Layout>
   )
 }
@@ -128,4 +126,4 @@ export const query = graphql`
 ```
 
 That's all, pretty basic, but a nice to have snippet.
-To go beyond, visit the official Gatsby Documentation [How to do a tag list page](https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/).
+To go beyond, visit the official Gatsby Documentation [How to do a tag list page](https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/ "Gatsby How to do a tag list page").

@@ -56,4 +56,4 @@ plugins: [
 
 That's all! Remember markdown syntax: add a &lt;pre> tag is done by adding four empty spaces.
 
-And, of course, check official plugin documentation [here](https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/).
+And, of course, check official plugin documentation [here](https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/ "Gatsby PrismJS plugin").

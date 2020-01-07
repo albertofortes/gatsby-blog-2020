@@ -7,19 +7,17 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title="Alberto Fortes. Front-end developer working remotely for the best companies" />
-      <div className="container__inner">
-        <h2 className="container__title">Blog posts <em>({data.allMarkdownRemark.totalCount})</em>:</h2>
-        <div className="posts">
-          {data.allMarkdownRemark.edges.map(({ node }) => (
-            <div key={node.id} className="post">
-              <Link to={node.fields.slug} title={node.frontmatter.title}><img className="post__image" src={node.frontmatter.image} alt="" /></Link>
-              <h3 className="post__title"><Link to={node.fields.slug} title={node.frontmatter.title}>{node.frontmatter.title}{" "}</Link></h3>
-              <p className="post__date">{node.frontmatter.date}</p>
-              
-              <div className="post__excerpt">{node.excerpt}</div>
-            </div>
-          ))}
-        </div>
+      <h2 className="container__title">Blog posts <em>({data.allMarkdownRemark.totalCount})</em>:</h2>
+      <div className="posts">
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <div key={node.id} className="post">
+            <Link to={node.fields.slug} title={node.frontmatter.title}><img className="post__image" src={node.frontmatter.image} alt="" /></Link>
+            <h3 className="post__title"><Link to={node.fields.slug} title={node.frontmatter.title}>{node.frontmatter.title}{" "}</Link></h3>
+            <p className="post__date">{node.frontmatter.date}</p>
+            
+            <div className="post__excerpt">{node.excerpt}</div>
+          </div>
+        ))}
       </div>
     </Layout>
   )

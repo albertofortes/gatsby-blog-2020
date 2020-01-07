@@ -13,20 +13,19 @@ const TagsPage = ({
     },
   },
 }) => (
-  <Layout>
-    <SEO title="Alberto Fortes. Front-end developer working remotely for the best companies" />
-    <div className="container__inner">
-      <h2 className="container__title">Tag list:</h2>
-      <ul>
-        {group.map(tag => (
-          <li key={tag.fieldValue}>
-            <Link to={`/blog/tags/${kebabCase(tag.fieldValue)}/`}>
-              {tag.fieldValue} ({tag.totalCount})
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+
+<Layout>
+  <SEO title="Alberto Fortes. Front-end developer working remotely for the best companies" />
+  <h2 className="container__title">Tag list:</h2>
+  <ul>
+    {group.map(tag => (
+      <li key={tag.fieldValue}>
+        <Link to={`/blog/tags/${kebabCase(tag.fieldValue)}/`}>
+          {tag.fieldValue} ({tag.totalCount})
+        </Link>
+      </li>
+    ))}
+  </ul>
   </Layout>
 )
 

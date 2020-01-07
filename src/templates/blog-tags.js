@@ -14,19 +14,17 @@ const Tags = ({ pageContext, data }) => {
 
   return (
     <Layout>
-      <div className="container__inner">
-        <h2 className="container__title" dangerouslySetInnerHTML={{ __html: tagHeader }} />
-        <div className="posts">
-          {edges.map(({ node }) => (
-            <div key={node.fields.slug} className="post">
-              <Link to={node.fields.slug} title={node.frontmatter.title}><img className="post__image" src={node.frontmatter.image} alt="" /></Link>
-              <h3 className="post__title"><Link to={node.fields.slug} title={node.frontmatter.title}>{node.frontmatter.title}{" "}</Link></h3>
-              <p className="post__date">{node.frontmatter.date}</p>
-              
-              <div className="post__excerpt">{node.frontmatter.excerpt}</div>
-            </div>
-          ))}
-        </div>
+      <h2 className="container__title" dangerouslySetInnerHTML={{ __html: tagHeader }} />
+      <div className="posts">
+        {edges.map(({ node }) => (
+          <div key={node.fields.slug} className="post">
+            <Link to={node.fields.slug} title={node.frontmatter.title}><img className="post__image" src={node.frontmatter.image} alt="" /></Link>
+            <h3 className="post__title"><Link to={node.fields.slug} title={node.frontmatter.title}>{node.frontmatter.title}{" "}</Link></h3>
+            <p className="post__date">{node.frontmatter.date}</p>
+            
+            <div className="post__excerpt">{node.frontmatter.excerpt}</div>
+          </div>
+        ))}
       </div>
     </Layout>
   )

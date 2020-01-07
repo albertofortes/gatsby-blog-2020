@@ -7,6 +7,6 @@ image: "/blog/100-days-of-gatsby-challenge.png"
 tags: ['javascript', 'twitter', 'gatsby']
 ---
 
-Starting at 1st Jan, 2020 a Worldwide coding Challenge started: [#100DaysOfGatsby Challenge](https://twitter.com/hashtag/100DaysOfGatsby).
+Starting at 1st Jan, 2020 a Worldwide coding Challenge started: [#100DaysOfGatsby Challenge](https://twitter.com/hashtag/100DaysOfGatsby "100 Days of Gatsby Challenge").
 
 TO DO
