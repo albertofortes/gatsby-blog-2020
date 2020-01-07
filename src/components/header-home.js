@@ -194,7 +194,7 @@ class HeaderHome extends React.Component {
               <a href="https://dribbble.com/albertofortes">Dribble</a>
               <a href="https://twitter.com/albertofs">Twitter</a>
               <Link to="/about/">About me</Link>
-              <Link to="/blog/">Go to Blog</Link>
+              <Link to="/blog/">Blog</Link>
               <a href="mailto:albertofortes@gmail.com">Email</a>
             </p>
           </div>
