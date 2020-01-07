@@ -1,0 +1,13 @@
+.footer {
+  text-align: center;
+  border-top: 1px solid $primary-color;
+  padding: 2rem;
+  font: normal 300 1.4rem $primaryFont;
+  color: $tertiary-color;
+  background-color: $quaternary-color;
+
+  a {
+    color: $tertiary-color;
+    text-decoration: underline;
+  }
+}

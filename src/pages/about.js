@@ -22,7 +22,7 @@ const AboutMe = ({ children }) => {
       <SEO title={data.site.siteMetadata.title} description={data.site.siteMetadata.description} />
       <article className="article">
         <h2 className="article__title article__title--remark t-c">I’m Freelance UI Engineer / Front-end developer from 2006.</h2>
-        {/*<div className="article__image"><img src="" alt="" /></div>*/}
+        <div className="article__image"><img src="/images/albertofortes-web-developerpng" alt="" /></div>
         <div className="article__cont">
           <h3 className="article__claim t-c">More than 13 years coding as JavaScript, CSS, HTML, PHP expert that can help you to code the HTML5, CSS3 and JavaScript of your project. I have my own team to help me when the work requires it.</h3>
           <div className="article__cont__cols t-j">

@@ -7,7 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 
 const Layout = ({ children }) => {
@@ -34,7 +34,7 @@ const Layout = ({ children }) => {
         {children}
       </div>
       <footer className="footer">
-        <p>2006 - {new Date().getFullYear()} Alberto Fortes. Coded with React JavaScript, GatsbyJS, HTML5, CSS / SASS, Grunt.</p>
+        <p>2006 - {new Date().getFullYear()} Alberto Fortes. Coded with React JavaScript, GatsbyJS, HTML5, CSS / SASS, Grunt. | <Link to="/cookies" activeClassName="active">Cookies</Link></p>
       </footer>
     </>
   )
