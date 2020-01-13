@@ -7,7 +7,7 @@ image: "/blog/code-highlight.png"
 tags: ['javascript', 'markdown', 'gatsby']
 ---
 
-If you are using Gatsby as static website or blog, porbably you are a developer. In that case, you will need code syntax highlightings to the code blocks. As usual Gatsby provide us a easy way to achieve it into oir markdown.
+If you are using Gatsby as static website or blog, probably you are a developer. In that case, you will need code syntax highlighting to the code blocks. As usual Gatsby provide us an easy way to achieve it into the markdown.
 
 ### Run the next command:
 *npm install --save gatsby-remark-prismjs prismjs*

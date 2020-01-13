@@ -28,7 +28,7 @@ Note: You need previously understand how to do a Markdown post page with [Gatsby
 
 ### Solution: Arrow function + map() method:
 
-We need to have previously a Gatsby template to show each markdown post page [again visit Basic Gatsby Blog tutorial](https://www.gatsbyjs.org/tutorial/part-seven/):
+We need to have previously a Gatsby template to show each markdown post page. [Again visit Basic Gatsby Blog tutorial](https://www.gatsbyjs.org/tutorial/part-seven/):
 
 ```javascript
 import React from "react"

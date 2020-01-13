@@ -148,7 +148,7 @@ article.article {
       margin-right: 10%;
     }
 
-    p, ul, ol, dl, code, pre, li, blockquote, img {
+    p, ul, ol, dl, code, pre, blockquote, img {
       margin-bottom: 1em;
     }
 
@@ -165,6 +165,19 @@ article.article {
 
     strong {
       font-weight: 700;
+    }
+
+    ul {
+      margin: 0 0 1rem 2rem;
+      list-style: square;
+
+      li {
+        margin: .5rem 0;
+      }
+      
+      ul {
+        //margin: 0 0 1rem 2rem;
+      }
     }
 
     code {

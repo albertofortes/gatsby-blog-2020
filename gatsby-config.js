@@ -3,8 +3,8 @@ module.exports = {
   siteMetadata: {
     title: `Alberto Fortes`,
     role: `Front-end developer building cool websites and apps for Avallain and Warner Music Spain.`,
-    description: `<p>Along side more than 14 years I've doing fast and SEO on page optimized HTML5 and CSS website and I develop JavaScript front-end code in my day a day, applying the latest techniques to achieve page load optimization time and clear and easy to read code. As front-end HTML, CSS and JavaScript and with a past background as UX and web designer I've coded along these years for great end customers (mine or white-label for agencies).</p>
-                  <p>Currently I'm Front-end team lead at Avallain, working for the top Press companies at the Globe. Also I'm lead developer at my own small studio working with side projects and important customers like Warner Music Spain</p>`,
+    description: `<p>Along side more than 14 years I've been doing many fast and SEO on Page websites. I develop HTML5 and CSS and JavaScript (Vanilla, React...)  front-end code in my day a day, applying the latest techniques to achieve page load optimal time and clear and easy to read code. As front-end HTML, CSS and JavaScript and with a past background as UX and web designer I've coded along these years for great end customers (mine or white-label for agencies).</p>
+                  <p>Currently I'm Front-end team lead at Avallain, working for the top Press companies. Also I'm lead developer at my own small studio working with side projects and important customers like Warner Music Spain.</p>`,
     author: `@albertofortes`,
   },
   plugins: [
