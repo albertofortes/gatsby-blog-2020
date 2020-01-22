@@ -1,9 +1,9 @@
 ---
-title: "How to make a list of tags in a Gatsby JS blog"
-subtitle: "Basic how to code a simple comma separated tag list in a blog post done with Gatsby JS (React)."
-date: "2020-01-04"
-update: "2020-01-04"
-image: "/blog/100-days-of-gatsby-challenge.png"
+title: How to make a list of tags in a Gatsby JS blog
+subtitle: Basic how to code a simple comma separated tag list in a blog post done with Gatsby JS (React).
+date: 2020-01-04
+update: 2020-01-04
+banner: ./blog/100-days-of-gatsby-challenge.png
 tags: ['javascript', '#100DaysOfGatsby', 'gatsby']
 ---
 
@@ -19,7 +19,7 @@ We want to do a basic tag list for each post. So in the Frontmatter we could add
 title: "How to make a list of tags in a Gatsby JS blog"
 subtitle: "Basic how to code a simple comma separated tag list in a blog post done with Gatsby JS (React)."
 date: "2020-01-04"
-image: "/blog/100-days-of-gatsby-challenge.png"
+banner: "/blog/100-days-of-gatsby-challenge.png"
 tags: ['javascript', '#100DaysOfGatsby', 'gatsby']
 ---
 ```
@@ -45,7 +45,7 @@ export default ({ data }) => {
           <h3 className="article__subtitle">{post.frontmatter.subtitle}</h3>
           <p className="article__date">{post.frontmatter.date}</p>
           <p className="article__tags">Tags: TO DO</p>
-          <div className="article__image"><img src={post.frontmatter.image} alt="" /></div>
+          <div className="article__image"><img src={post.frontmatter.banner} alt="" /></div>
           <div className="article__cont" dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
       </div>
@@ -61,7 +61,7 @@ export const query = graphql`
         title
         subtitle
         date(formatString: "DD MMMM, YYYY")
-        image
+        banner
         tags
       }
     }
@@ -102,7 +102,7 @@ export default ({ data }) => {
             </strong>
           ])}
         </p>
-        <div className="article__image"><img src={post.frontmatter.image} alt="" /></div>
+        <div className="article__image"><img src={post.frontmatter.banner} alt="" /></div>
         <div className="article__cont" dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
     </Layout>
@@ -117,7 +117,7 @@ export const query = graphql`
         title
         subtitle
         date(formatString: "DD MMMM, YYYY")
-        image
+        banner
         tags
       }
     }

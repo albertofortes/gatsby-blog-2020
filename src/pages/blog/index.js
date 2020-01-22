@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Img from "gatsby-image"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 
@@ -11,7 +12,7 @@ export default ({ data }) => {
       <div className="posts">
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id} className="post">
-            <Link to={node.fields.slug} title={node.frontmatter.title}><img className="post__image" src={node.frontmatter.image} alt="" /></Link>
+            <Link to={node.fields.slug} title={node.frontmatter.title}><Img fixed={node.frontmatter.banner} /></Link>
             <h3 className="post__title"><Link to={node.fields.slug} title={node.frontmatter.title}>{node.frontmatter.title}{" "}</Link></h3>
             <p className="post__date">{node.frontmatter.date}</p>
             
@@ -40,7 +41,7 @@ export const query = graphql`
             title
             subtitle
             date(formatString: "DD MMMM, YYYY")
-            image
+            banner
           }
           fields {
             slug

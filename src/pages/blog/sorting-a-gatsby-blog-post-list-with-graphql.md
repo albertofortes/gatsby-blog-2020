@@ -1,9 +1,9 @@
 ---
-title: "Sorting a GatsbyJS-blog posts list with GraphQL"
-subtitle: "How to sort a list with GraphQL in Gatsby and React."
-date: "2019-01-13"
-update: "2019-01-13"
-image: "/blog/100-days-of-gatsby-challenge.png"
+title: Sorting a GatsbyJS-blog posts list with GraphQL
+subtitle: How to sort a list with GraphQL in Gatsby and React.
+date: 2019-01-13
+update: 2019-01-13
+banner: /blog/100-days-of-gatsby-challenge.png
 tags: ['javascript', '#100DaysOfGatsby', 'gatsby']
 ---
 
@@ -20,7 +20,7 @@ export default ({ data }) => {
       <div>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <div key={node.id}>
-          <Link to={node.fields.slug}><img src={node.frontmatter.image} /></Link>
+          <Link to={node.fields.slug}><img src={node.frontmatter.banner} /></Link>
           <Link to={node.fields.slug} title={node.frontmatter.title}>{node.frontmatter.title}{" "}</Link>
           <small>{node.frontmatter.date}</small>
           <div>{node.excerpt}</div>
