@@ -3,7 +3,7 @@ title: Sorting a GatsbyJS-blog posts list with GraphQL
 subtitle: How to sort a list with GraphQL in Gatsby and React.
 date: 2019-01-13
 update: 2019-01-13
-banner: /blog/100-days-of-gatsby-challenge.png
+banner: ../../images/blog/100-days-of-gatsby-challenge.png
 tags: ['javascript', '#100DaysOfGatsby', 'gatsby']
 ---
 

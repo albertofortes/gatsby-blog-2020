@@ -3,7 +3,7 @@ title: How to make a list of tags in a Gatsby JS blog
 subtitle: Basic how to code a simple comma separated tag list in a blog post done with Gatsby JS (React).
 date: 2020-01-04
 update: 2020-01-04
-banner: ./blog/100-days-of-gatsby-challenge.png
+banner: ../../images/blog/100-days-of-gatsby-challenge.png
 tags: ['javascript', '#100DaysOfGatsby', 'gatsby']
 ---
 

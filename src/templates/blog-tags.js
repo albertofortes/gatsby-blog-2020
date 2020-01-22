@@ -72,7 +72,13 @@ export const pageQuery = graphql`
             title
             subtitle
             date(formatString: "DD MMMM, YYYY")
-            banner
+            banner {
+              childImageSharp {
+                fluid(maxWidth: 1000) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           excerpt
         }

@@ -3,7 +3,7 @@ title: How to use Gatsby Image API with markdown files.
 subtitle: Some notes about working with Images in Markdown Posts and Pages
 date: 2020-01-21
 update: 2020-01-21
-banner: ../blog/great-gatsby.jpg
+banner: ../../images/blog/great-gatsby.jpg
 tags: ['javascript', '#100DaysOfGatsby', 'gatsby', 'performance', 'audit', 'SEO']
 ---
 
@@ -15,11 +15,11 @@ Before this point we have a blog based in markdown files. In the Markdown Frontm
 
 ```markdown
 ---
-title: "How to use Gatsby Image API with markdown files."
-subtitle: "Some notes about working with Images in Markdown Posts and Pages"
-date: "2020-01-21"
-update: "2020-01-21"
-image: "/blog/great-gatsby.jpg"
+title: How to use Gatsby Image API with markdown files.
+subtitle: Some notes about working with Images in Markdown Posts and Pages
+date: 2020-01-21
+update: 2020-01-21
+banner: ../../images/blog/great-gatsby.jpg
 tags: ['javascript', '#100DaysOfGatsby', 'gatsby', 'performance', 'audit', 'SEO']
 ---
 ```
@@ -106,12 +106,14 @@ And in the blog template, *blog-post.js*:
 ```javascript
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Img from "gatsby-image"
 import kebabCase from "lodash/kebabCase"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 export default ({ data }) => {
-  const post = data.markdownRemark
+  let post = data.markdownRemark
+  let bannerImgFluid = post.frontmatter.banner.childImageSharp.fluid
   return (
     <Layout>
       <SEO title={post.frontmatter.title} description={post.frontmatter.subtitle} />
@@ -126,7 +128,7 @@ export default ({ data }) => {
             
           ])}
         </p>
-        <div className="article__image"><img src={post.frontmatter.banner} alt="" /></div>
+        <div className="article__image"><Img className="post__image" fluid={bannerImgFluid} /></div>
         <div className="article__cont" dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
     </Layout>
@@ -141,7 +143,13 @@ export const query = graphql`
         title
         subtitle
         date(formatString: "DD MMMM, YYYY")
-        image
+        banner {
+          childImageSharp {
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         tags
       }
     }
@@ -151,6 +159,71 @@ export const query = graphql`
 Ok...
 Yeah...
 Fair enough, we are also adding tags here, so to see how I added tags to a blog post based in markdown, visit my previous post: [How to make a list of tags in a Gatsby JS blog](https://www.albertofortes.com/blog/how-to-make-a-list-of-tags-in-a-gatsbty-react-blog/).
+
+And in the *blog/index.js* file:
+
+```javascript
+import React from "react"
+import { Link, graphql } from "gatsby"
+import Img from "gatsby-image"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
+
+export default ({ data }) => {
+  return (
+    <Layout>
+      <SEO title="Alberto Fortes. Front-end developer working remotely for the best companies" />
+      <h2 className="container__title">Blog posts <em>({data.allMarkdownRemark.totalCount})</em>:</h2>
+      <div className="posts">
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <div key={node.id} className="post">
+            <Link to={node.fields.slug} title={node.frontmatter.title}><Img className="post__image" fixed={node.frontmatter.banner.childImageSharp.fixed} /></Link>
+            <h3 className="post__title"><Link to={node.fields.slug} title={node.frontmatter.title}>{node.frontmatter.title}{" "}</Link></h3>
+            <p className="post__date">{node.frontmatter.date}</p>
+            
+            <div className="post__excerpt">{node.excerpt}</div>
+          </div>
+        ))}
+      </div>
+    </Layout>
+  )
+}
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(
+      sort: {
+        fields: [frontmatter___date]
+        order: DESC
+      }
+    ) 
+    {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            subtitle
+            date(formatString: "DD MMMM, YYYY")
+            banner {
+              childImageSharp {
+                fixed(width: 500) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
+          }
+          fields {
+            slug
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`
+```
 
 ---
 
@@ -202,12 +275,6 @@ And now we will add a new directory *path: `${__dirname}/src/blog`*:
 {
   resolve: `gatsby-source-filesystem`,
   options: {
-    path: `${__dirname}/src/blog`,
-  },
-},
-{
-  resolve: `gatsby-source-filesystem`,
-  options: {
     name: `images`,
     path: `${__dirname}/src/images`,
   },
@@ -224,12 +291,18 @@ And now we will add a new directory *path: `${__dirname}/src/blog`*:
   options: {
     plugins: [
       {
+        resolve: `gatsby-remark-images`,
+        options: {
+          maxWidth: 1000,
+        },
+      },
+      {
         resolve: `gatsby-remark-prismjs`,
         options: {
           classPrefix: "language-",
           showLineNumbers: true,
         }
-      }
+      },
     ]
   }
 },
@@ -243,5 +316,66 @@ And now we will add a new directory *path: `${__dirname}/src/blog`*:
 **First at all you can get an error:**
 
 ```
-Field "image" must not have a selection since type "String" has no subfields
+Field "banner" must not have a selection since type "String" has no subfields
 ```
+
+Ok, I lost many hours with this. And I can swear to you that this is only a path issue.
+The path to the image in SRC folder that you set in frontmatter banner is not pointing t a real file. It can be both:
+- the path to the image in src folder is not correct,
+- the image name and/or extension is not correct, so you are pointing to a unexisting file.
+
+You can be realy sure that you are pointing to a real image, but if you follow steps above, installed npm plugins, set correctly *gatsby-config.js* and *gatsby-node.js* files, the problem is just that the line:
+
+```javascript
+banner: ../../images/blog/great-gatsby.jpg
+```
+
+Is not working nicely due to it's incorrect in one or above points.
+
+Did you know what? I had that problem and I was sure (wronly) that my parth was correct, my file was: 
+
+```javascript
+banner: "/blog/100-days-of-gatsby-challenge.png"
+```
+
+Then I tried:
+
+- banner: /blog/100-days-of-gatsby-challenge.png
+- banner: ../blog/100-days-of-gatsby-challenge.png
+- banner: ../images/blog/100-days-of-gatsby-challenge.png
+
+And finally I saw my wrong, OMG what the Hell path was I setting up?
+
+My SRC tree is:
+
+```
+-src/
+-- pages/
+----blog/
+------ *.md
+
+-- images/
+---- blog/
+------ *.* // all images used for blogging.
+````
+
+So I was wrong with the path to src real files.
+
+That's all!
+Stop losing time with programming bugs, it's just a matter of path.
+
+So the unfamous Gatsby / GraphQL error:
+
+# Field "banner" must not have a selection since type "String" has no subfields
+
+It's just a slip-up.
+
+
+Hey! But when I try to render blog index page (/blog/inde.js)* I got thiserror as well:
+
+```
+TypeError: Cannot read property 'childImageSharp' of null
+```
+
+Ok, this is again the same error, one of your .md pages still has a wrong path in the frontmatter 'banner' field.
+I swear you, check it.

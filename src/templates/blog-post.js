@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 
 export default ({ data }) => {
   let post = data.markdownRemark
-  let featuredImgFluid = post.frontmatter.banner.childImageSharp.fluid
+  let bannerImgFluid = post.frontmatter.banner.childImageSharp.fluid
   return (
     <Layout>
       <SEO title={post.frontmatter.title} description={post.frontmatter.subtitle} />
@@ -22,7 +22,7 @@ export default ({ data }) => {
             
           ])}
         </p>
-        <div className="article__image"><Img fluid={featuredImgFluid} /></div>
+        <div className="article__image"><Img className="post__image" fluid={bannerImgFluid} /></div>
         <div className="article__cont" dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
     </Layout>
@@ -39,7 +39,7 @@ export const query = graphql`
         date(formatString: "DD MMMM, YYYY")
         banner {
           childImageSharp {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 1000) {
               ...GatsbyImageSharpFluid
             }
           }

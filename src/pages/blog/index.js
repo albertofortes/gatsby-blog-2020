@@ -12,7 +12,7 @@ export default ({ data }) => {
       <div className="posts">
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id} className="post">
-            <Link to={node.fields.slug} title={node.frontmatter.title}><Img fixed={node.frontmatter.banner} /></Link>
+            <Link to={node.fields.slug} title={node.frontmatter.title}><Img className="post__image" fixed={node.frontmatter.banner.childImageSharp.fixed} /></Link>
             <h3 className="post__title"><Link to={node.fields.slug} title={node.frontmatter.title}>{node.frontmatter.title}{" "}</Link></h3>
             <p className="post__date">{node.frontmatter.date}</p>
             
@@ -41,7 +41,13 @@ export const query = graphql`
             title
             subtitle
             date(formatString: "DD MMMM, YYYY")
-            banner
+            banner {
+              childImageSharp {
+                fixed(width: 500) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
           }
           fields {
             slug
