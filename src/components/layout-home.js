@@ -6,7 +6,6 @@
  */
 
 import React from "react"
-import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import HeaderHome from "./header-home.js"
 
@@ -26,7 +25,6 @@ const LayoutHome = ({ children }) => {
   return (
     <>
       <HeaderHome 
-        siteTitle={data.site.siteMetadata.title}
         siteRole={data.site.siteMetadata.role}
         siteDescription={data.site.siteMetadata.description}
       />
@@ -34,8 +32,6 @@ const LayoutHome = ({ children }) => {
   )
 }
 
-LayoutHome.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+
 
 export default LayoutHome

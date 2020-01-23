@@ -7,7 +7,7 @@ import SEO from "../../components/seo"
 export default ({ data }) => {
   return (
     <Layout>
-      <SEO title="Alberto Fortes. Front-end developer working remotely for the best companies" />
+      <SEO title="Blog" description={data.site.siteMetadata.description} />
       <h2 className="container__title">Blog posts <em>({data.allMarkdownRemark.totalCount})</em>:</h2>
       <div className="posts">
         {data.allMarkdownRemark.edges.map(({ node }) => (
@@ -26,6 +26,12 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        role
+        description
+      }
+    }
     allMarkdownRemark(
       sort: {
         fields: [frontmatter___date]

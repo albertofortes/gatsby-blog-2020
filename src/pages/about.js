@@ -19,7 +19,7 @@ const AboutMe = ({ children }) => {
 
   return (
     <Layout>
-      <SEO title={data.site.siteMetadata.title} description={data.site.siteMetadata.description} />
+      <SEO title="Alberto Fortes" description={data.site.siteMetadata.description} />
       <article className="article">
         <h2 className="article__title article__title--remark t-c">I’m Freelance UI Engineer / Front-end developer from 2006.</h2>
         <div className="article__image"><img src="/images/albertofortes-web-developer.png" alt="" /></div>
