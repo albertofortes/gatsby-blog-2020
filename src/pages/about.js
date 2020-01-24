@@ -1,5 +1,6 @@
 import React from "react"
 import { useStaticQuery, Link, graphql } from "gatsby"
+import Img from "gatsby-image"
 import PropTypes from "prop-types"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -7,6 +8,13 @@ import SEO from "../components/seo"
 const AboutMe = ({ children }) => {
   const data = useStaticQuery(graphql`
      {
+      file(relativePath: { eq: "images/albertofortes-web-developer.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
       site {
         siteMetadata {
           title
@@ -19,10 +27,10 @@ const AboutMe = ({ children }) => {
 
   return (
     <Layout>
-      <SEO title={data.site.siteMetadata.title} description={data.site.siteMetadata.description} />
+      <SEO title="Alberto Fortes" description={data.site.siteMetadata.description} />
       <article className="article">
         <h2 className="article__title article__title--remark t-c">I’m Freelance UI Engineer / Front-end developer from 2006.</h2>
-        <div className="article__image"><img src="/images/albertofortes-web-developer.png" alt="" /></div>
+        <div className="article__image"><Img fluid={data.file.childImageSharp.fluid} alt="Alberto Fortes is a Front-End freelance developer working as contractor." /></div>
         <div className="article__cont">
           <h3 className="article__claim t-c">More than 14 years coding as JavaScript, CSS, HTML, PHP expert that can help you to code the HTML5, CSS3 and JavaScript of your project. I have my own team to help me when the work requires it.</h3>
           <div className="article__cont__cols t-j">

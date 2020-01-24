@@ -1,9 +1,9 @@
 ---
-title: "Code block highlights for Gatsby ReactJS blogs"
-subtitle: "Syntax highlighting to the code blocks"
-date: "2019-05-08"
-update: "2020-01-03"
-image: "/blog/code-highlight.png"
+title: Code block highlights for Gatsby ReactJS blogs
+subtitle: Syntax highlighting to the code blocks
+date: 2019-05-08
+update: 2020-01-03
+banner: ../../images/blog/code-highlight.png
 tags: ['javascript', 'markdown', 'gatsby']
 ---
 

@@ -1,11 +1,13 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Banner from "gatsby-image"
 import kebabCase from "lodash/kebabCase"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 export default ({ data }) => {
-  const post = data.markdownRemark
+  let post = data.markdownRemark
+  let bannerImgFluid = post.frontmatter.banner.childImageSharp.fluid
   return (
     <Layout>
       <SEO title={post.frontmatter.title} description={post.frontmatter.subtitle} />
@@ -20,7 +22,7 @@ export default ({ data }) => {
             
           ])}
         </p>
-        <div className="article__image"><img src={post.frontmatter.image} alt="" /></div>
+        <div className="article__image"><Banner className="post__image" fluid={bannerImgFluid} /></div>
         <div className="article__cont" dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
     </Layout>
@@ -35,7 +37,13 @@ export const query = graphql`
         title
         subtitle
         date(formatString: "DD MMMM, YYYY")
-        image
+        banner {
+          childImageSharp {
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         tags
       }
     }

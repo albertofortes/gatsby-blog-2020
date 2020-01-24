@@ -18,7 +18,7 @@ const Tags = ({ pageContext, data }) => {
       <div className="posts">
         {edges.map(({ node }) => (
           <div key={node.fields.slug} className="post">
-            <Link to={node.fields.slug} title={node.frontmatter.title}><img className="post__image" src={node.frontmatter.image} alt="" /></Link>
+            <Link to={node.fields.slug} title={node.frontmatter.title}><img className="post__image" src={node.frontmatter.banner} alt="" /></Link>
             <h3 className="post__title"><Link to={node.fields.slug} title={node.frontmatter.title}>{node.frontmatter.title}{" "}</Link></h3>
             <p className="post__date">{node.frontmatter.date}</p>
             
@@ -72,7 +72,13 @@ export const pageQuery = graphql`
             title
             subtitle
             date(formatString: "DD MMMM, YYYY")
-            image
+            banner {
+              childImageSharp {
+                fluid(maxWidth: 1000) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           excerpt
         }

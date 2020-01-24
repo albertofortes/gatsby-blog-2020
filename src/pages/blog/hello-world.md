@@ -1,9 +1,9 @@
 ---
-title: "Hello World"
-subtitle: "This is my very first post in my brand new React based (Gatsby) blog!"
-date: "2019-05-07"
-update: "2020-01-01"
-image: "/blog/hello-world.png"
+title: Hello World
+subtitle: This is my very first post in my brand new React based (Gatsby) blog!
+date: 2019-05-07
+update: 2020-01-01
+banner: ../../images/blog/hello-world.png
 tags: ['gatsby']
 ---
 

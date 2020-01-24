@@ -10,14 +10,16 @@ class HeaderHome extends React.Component {
     this.state = {
       headerWidth: 0,
       headerHeight: 0,
-      points: 0
+      points: 0,
+      playSoundEat: false
     };
+
+    this.soundEat = new Audio('../audio/ping-short-positive.mp3');
   }
 
   componentDidMount () {
     window.addEventListener("scroll", function (event) {
       var scroll = this.scrollY;
-      console.log(scroll);
     });
 
     window.addEventListener("resize", function (event) {
@@ -26,6 +28,14 @@ class HeaderHome extends React.Component {
 
     this.canvasSize();
     this.snakeGame();
+  }
+
+  componentWillUnmount() {}
+
+  playSounds() {
+    this.setState({ playSoundEat: !this.state.playSoundEat }, () => {
+      this.state.playSoundEat ? this.soundEat.play() : this.soundEat.pause();
+    });
   }
 
   canvasSize() {
@@ -94,8 +104,10 @@ class HeaderHome extends React.Component {
         : [nextHead(state)].concat(dropLast(state.snake)));
 
     const rndPos = function(table) {
+      this.playSounds();
       this.setState({
         points: this.state.points + 1,
+        playSoundEat: false
       })
       return {
         x: rnd(0)(table.cols - 1),
@@ -180,13 +192,13 @@ class HeaderHome extends React.Component {
   }
 
   render () {
-    const { siteTitle, siteRole, siteDescription } = this.props
+    const { siteRole, siteDescription } = this.props
 
     return (
       <header id="headerHome" className="header-home">
         <div id="wrap" className="wrapper">
           <div className="who">
-            <h1>Hola, I'm <strong>{siteTitle}</strong>,</h1>
+            <h1>Hola, I'm <strong>Alberto Fortes</strong>,</h1>
             <h2>{siteRole}</h2>
             <div className="who__desc" dangerouslySetInnerHTML={{ __html: siteDescription }} />
             <p className="who__links">

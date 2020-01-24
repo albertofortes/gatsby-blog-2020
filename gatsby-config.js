@@ -1,8 +1,8 @@
 module.exports = {
   //pathPrefix: "/gatsby-blog-2020",
   siteMetadata: {
-    title: `Alberto Fortes`,
-    role: `Front-end developer building cool websites and apps for Avallain and Warner Music Spain.`,
+    title: `Front-End freelance developer working remotely as contractor for the best companies.`,
+    role: `Front-End developer building cool websites and apps for Avallain and Warner Music Spain.`,
     description: `<p>Along side more than 14 years I've been doing many fast and SEO on Page websites. I develop HTML5 and CSS and JavaScript (Vanilla, React...)  front-end code in my day a day, applying the latest techniques to achieve page load optimal time and clear and easy to read code. As front-end HTML, CSS and JavaScript and with a past background as UX and web designer I've coded along these years for great end customers (mine or white-label for agencies).</p>
                   <p>Currently I'm Front-end team lead at Avallain, working for the top Press companies. Also I'm lead developer at my own small studio working with side projects and important customers like Warner Music Spain.</p>`,
     author: `@albertofortes`,
@@ -47,13 +47,42 @@ module.exports = {
         display: 'swap'
       }
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1000,
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: "language-",
+              showLineNumbers: true,
+            }
+          },
+        ]
+      }
+    },
+    /*{
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `audio`,
+        path: `${__dirname}/src/audio/`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/images/`,
       },
-    },
+    },*/
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -61,22 +90,6 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              classPrefix: "language-",
-              showLineNumbers: true,
-            }
-          }
-        ]
-      }
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-lodash`,
       options: {

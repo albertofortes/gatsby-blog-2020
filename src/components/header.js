@@ -26,11 +26,9 @@ class Header extends React.Component {
   }
 
   render () {
-    const { siteTitle } = this.props
-
     return (
       <header className="header">
-        <h1 className="header__logo">Hola, I'm <Link to="/">{siteTitle}.</Link></h1>
+        <h1 className="header__logo">Hola, I'm <Link to="/">Alberto Fortes.</Link></h1>
         <button className="header__mobilebtn" id="menuTrigger" aria-label="Abrir menú"></button>
         <nav className="header__nav">
           <ul>
