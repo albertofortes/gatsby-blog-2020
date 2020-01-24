@@ -64,8 +64,9 @@
 }
 
 article.article {
+  width: 100%;
   max-width: 1000px;
-  margin: 0 auto;
+  align-self: center;
   color: $tertiary-color;
 
   .article__title {

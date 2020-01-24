@@ -1,5 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 import PropTypes from "prop-types"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -14,6 +15,13 @@ const CookiesPage = ({ children }) => {
           description
         }
       }
+      file(relativePath: { eq: "images/cookies.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `)
 
@@ -22,7 +30,7 @@ const CookiesPage = ({ children }) => {
       <SEO title={data.site.siteMetadata.title} description={data.site.siteMetadata.description} />
       <article className="article">
         <h2 className="article__title article__title--remark t-c">Cookie Policy</h2>
-        <div className="article__image"><img src="/images/cookies.png" alt="Cookie Monster" /></div>
+        <div className="article__image"><Img fluid={data.file.childImageSharp.fluid} alt="Cookie Monster" /></div>
         <div className="article__cont">
           <div className="article__cont__cols t-j">
             <h3>What Are Cookies</h3>

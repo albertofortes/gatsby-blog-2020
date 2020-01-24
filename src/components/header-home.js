@@ -14,8 +14,7 @@ class HeaderHome extends React.Component {
       playSoundEat: false
     };
 
-    //this.soundEat = new Audio('http://localhost:8000/static/ping-short-positive-355e760f613061fdd24340dde5a4cd7c.mp3')
-    this.soundEat = new Audio('../audio/ping-short-positive.mp3')
+    this.soundEat = new Audio('../audio/ping-short-positive.mp3');
   }
 
   componentDidMount () {

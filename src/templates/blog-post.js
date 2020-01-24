@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
+import Banner from "gatsby-image"
 import kebabCase from "lodash/kebabCase"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -22,7 +22,7 @@ export default ({ data }) => {
             
           ])}
         </p>
-        <div className="article__image"><Img className="post__image" fluid={bannerImgFluid} /></div>
+        <div className="article__image"><Banner className="post__image" fluid={bannerImgFluid} /></div>
         <div className="article__cont" dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
     </Layout>

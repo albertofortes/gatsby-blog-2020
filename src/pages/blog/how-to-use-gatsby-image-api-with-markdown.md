@@ -3,7 +3,7 @@ title: How to use Gatsby Image API with markdown files.
 subtitle: Some notes about working with Images in Markdown Posts and Pages
 date: 2020-01-21
 update: 2020-01-21
-banner: ../../images/blog/great-gatsby.jpg
+banner: ../../images/blog/100-days-of-gatsby-challenge.png
 tags: ['javascript', '#100DaysOfGatsby', 'gatsby', 'performance', 'audit', 'SEO']
 ---
 
@@ -19,7 +19,7 @@ title: How to use Gatsby Image API with markdown files.
 subtitle: Some notes about working with Images in Markdown Posts and Pages
 date: 2020-01-21
 update: 2020-01-21
-banner: ../../images/blog/great-gatsby.jpg
+banner: ../../images/blog/100-days-of-gatsby-challenge.png
 tags: ['javascript', '#100DaysOfGatsby', 'gatsby', 'performance', 'audit', 'SEO']
 ---
 ```
@@ -172,12 +172,12 @@ import SEO from "../../components/seo"
 export default ({ data }) => {
   return (
     <Layout>
-      <SEO title="Alberto Fortes. Front-end developer working remotely for the best companies" />
+      <SEO title="Blog" description={data.site.siteMetadata.description} />
       <h2 className="container__title">Blog posts <em>({data.allMarkdownRemark.totalCount})</em>:</h2>
       <div className="posts">
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id} className="post">
-            <Link to={node.fields.slug} title={node.frontmatter.title}><Img className="post__image" fixed={node.frontmatter.banner.childImageSharp.fixed} /></Link>
+            <Link to={node.fields.slug} title={node.frontmatter.title}><Img className="post__image" fluid={node.frontmatter.banner.childImageSharp.fluid} /></Link>
             <h3 className="post__title"><Link to={node.fields.slug} title={node.frontmatter.title}>{node.frontmatter.title}{" "}</Link></h3>
             <p className="post__date">{node.frontmatter.date}</p>
             
@@ -191,6 +191,12 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        role
+        description
+      }
+    }
     allMarkdownRemark(
       sort: {
         fields: [frontmatter___date]
@@ -208,8 +214,8 @@ export const query = graphql`
             date(formatString: "DD MMMM, YYYY")
             banner {
               childImageSharp {
-                fixed(width: 500) {
-                  ...GatsbyImageSharpFixed
+                fluid(maxWidth: 500) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
@@ -233,15 +239,8 @@ We are going to grab the image filename from the *image* frontmatter field and t
 
 Assuming we have gatsby-image, gatsby-transformer-sharp and gatsby-plugin-sharp node packages already installed, we are going to add into *gatsby-config.js* file a new `gatsby-source-filesystem` entry, so previosly we had:
 
-```
+```javascript
 […]
-{
-  resolve: `gatsby-source-filesystem`,
-  options: {
-    name: `images`,
-    path: `${__dirname}/src/images`,
-  },
-},
 {
   resolve: `gatsby-source-filesystem`,
   options: {
@@ -268,48 +267,6 @@ Assuming we have gatsby-image, gatsby-transformer-sharp and gatsby-plugin-sharp 
 […]
 ```
 
-And now we will add a new directory *path: `${__dirname}/src/blog`*:
-
-```javascript
-[…]
-{
-  resolve: `gatsby-source-filesystem`,
-  options: {
-    name: `images`,
-    path: `${__dirname}/src/images`,
-  },
-},
-{
-  resolve: `gatsby-source-filesystem`,
-  options: {
-    name: `src`,
-    path: `${__dirname}/src/`,
-  },
-},
-{
-  resolve: `gatsby-transformer-remark`,
-  options: {
-    plugins: [
-      {
-        resolve: `gatsby-remark-images`,
-        options: {
-          maxWidth: 1000,
-        },
-      },
-      {
-        resolve: `gatsby-remark-prismjs`,
-        options: {
-          classPrefix: "language-",
-          showLineNumbers: true,
-        }
-      },
-    ]
-  }
-},
-`gatsby-transformer-sharp`,
-`gatsby-plugin-sharp`,
-[…]
-```
 #### Once the new frontmatter remark directory has been added to the gatsby-config file, let's see how to query the featured images.
 
 
@@ -371,7 +328,7 @@ So the unfamous Gatsby / GraphQL error:
 It's just a slip-up.
 
 
-Hey! But when I try to render blog index page (/blog/inde.js)* I got thiserror as well:
+Hey! But when I try to render blog index page (/blog/index.js)* I got thiserror as well:
 
 ```
 TypeError: Cannot read property 'childImageSharp' of null
@@ -379,3 +336,148 @@ TypeError: Cannot read property 'childImageSharp' of null
 
 Ok, this is again the same error, one of your .md pages still has a wrong path in the frontmatter 'banner' field.
 I swear you, check it.
+
+
+## And what about to adding optim images to static pages?
+
+**Even easier!**
+
+In any static page, for example my *about.js* was previously:
+
+```javascript
+import React from "react"
+import { useStaticQuery, Link, graphql } from "gatsby"
+import PropTypes from "prop-types"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+
+const AboutMe = ({ children }) => {
+  const data = useStaticQuery(graphql`
+     {
+      site {
+        siteMetadata {
+          title
+          role
+          description
+        }
+      }
+    }
+  `)
+
+  return (
+    <Layout>
+      <SEO title="Alberto Fortes" description={data.site.siteMetadata.description} />
+      <article className="article">
+        <h2 className="article__title article__title--remark t-c">I’m Freelance UI Engineer / Front-end developer from 2006.</h2>
+        <div className="article__image"><img src="/images/albertofortes-web-developer.png" alt="" /></div>
+        <div className="article__cont">
+          <h3 className="article__claim t-c">More than 14 years coding as JavaScript, CSS, HTML, PHP expert that can help you to code the HTML5, CSS3 and JavaScript of your project. I have my own team to help me when the work requires it.</h3>
+          <div className="article__cont__cols t-j">
+            <p>From 2006 I've been working as freelance front-end developer helping important brands to achieve their projects on time. Working with their own teams or other external agencies to provide expertise view in HTML, CSS, JavaScript, Load optimization, Accessibility, Usability and other related skills.</p>
+            <p>My rate starts at 35€/hour with long time collaborations increasing rate with short term works. Currently I'm working as UI Engineer expert at Avallain, anyway, I'm always open to discussing new opportunities for full time work or freelance clients. Write me a line in the form below, maybe me or my colleagues have some time.</p>
+            <p>I like to do things right, to work with professional people but most important is to be a friendly person, so for me, like good Andalusian spaniard, I like the cordiality and fellowship.</p>
+            <p>My specialty is web design and front-end development, I work with Photoshop, Adobe Illustrator or Sketch App and I turn pixels into semantic HTML, CSS and JavaScript code. Take a look to mu uses page to now more about <Link to="/uses/">what I use for working</Link>.</p>
+          </div>
+        </div>
+      </article>
+    </Layout>
+  )
+}
+
+AboutMe.propTypes = {
+  children: PropTypes.node.isRequired,
+} 
+
+export default AboutMe
+````
+
+
+So we just have to remove any call to static page by the hook: [useStaticQuery](https://www.gatsbyjs.org/blog/2019-02-20-introducing-use-static-query/) 
+
+So add the query to the file:
+
+```javascript
+const data = useStaticQuery(graphql`
+    {
+    site {
+      siteMetadata {
+        title
+        role
+        description
+      }
+    }
+  }
+`)
+```
+
+And then add the Img component:
+
+```javascript
+import Img from "gatsby-image"
+```
+
+and switch regular HTML img with Img component:
+
+```javascript
+<Img fluid={data.file.childImageSharp.fluid} alt="Me walking down the beach" />
+```
+
+**And tha's all!**
+
+Final file would be:
+
+```javascript
+import React from "react"
+import { useStaticQuery, Link, graphql } from "gatsby"
+import Img from "gatsby-image"
+import PropTypes from "prop-types"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+
+const AboutMe = ({ children }) => {
+  const data = useStaticQuery(graphql`
+     {
+      file(relativePath: { eq: "images/albertofortes-web-developer.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      site {
+        siteMetadata {
+          title
+          role
+          description
+        }
+      }
+    }
+  `)
+
+  return (
+    <Layout>
+      <SEO title="Alberto Fortes" description={data.site.siteMetadata.description} />
+      <article className="article">
+        <h2 className="article__title article__title--remark t-c">I’m Freelance UI Engineer / Front-end developer from 2006.</h2>
+        <div className="article__image"><Img fluid={data.file.childImageSharp.fluid} alt="Alberto Fortes is a Front-End freelance developer working as contractor." /></div>
+        <div className="article__cont">
+          <h3 className="article__claim t-c">More than 14 years coding as JavaScript, CSS, HTML, PHP expert that can help you to code the HTML5, CSS3 and JavaScript of your project. I have my own team to help me when the work requires it.</h3>
+          <div className="article__cont__cols t-j">
+            <p>From 2006 I've been working as freelance front-end developer helping important brands to achieve their projects on time. Working with their own teams or other external agencies to provide expertise view in HTML, CSS, JavaScript, Load optimization, Accessibility, Usability and other related skills.</p>
+            <p>My rate starts at 35€/hour with long time collaborations increasing rate with short term works. Currently I'm working as UI Engineer expert at Avallain, anyway, I'm always open to discussing new opportunities for full time work or freelance clients. Write me a line in the form below, maybe me or my colleagues have some time.</p>
+            <p>I like to do things right, to work with professional people but most important is to be a friendly person, so for me, like good Andalusian spaniard, I like the cordiality and fellowship.</p>
+            <p>My specialty is web design and front-end development, I work with Photoshop, Adobe Illustrator or Sketch App and I turn pixels into semantic HTML, CSS and JavaScript code. Take a look to mu uses page to now more about <Link to="/uses/">what I use for working</Link>.</p>
+          </div>
+        </div>
+      </article>
+    </Layout>
+  )
+}
+
+AboutMe.propTypes = {
+  children: PropTypes.node.isRequired,
+} 
+
+export default AboutMe
+
+```
