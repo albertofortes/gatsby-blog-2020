@@ -14,7 +14,7 @@ class HeaderHome extends React.Component {
       playSoundEat: false
     };
 
-    this.soundEat = new Audio('../audio/ping-short-positive.mp3');
+    //this.soundEat = new Audio('../audio/ping-short-positive.mp3');
   }
 
   componentDidMount () {
@@ -104,7 +104,7 @@ class HeaderHome extends React.Component {
         : [nextHead(state)].concat(dropLast(state.snake)));
 
     const rndPos = function(table) {
-      this.playSounds();
+      //this.playSounds();
       this.setState({
         points: this.state.points + 1,
         playSoundEat: false
