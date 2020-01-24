@@ -11,17 +11,12 @@ class HeaderHome extends React.Component {
       headerWidth: 0,
       headerHeight: 0,
       points: 0,
+      soundEat: {},
       playSoundEat: false
     };
-
-    //this.soundEat = new Audio('../audio/ping-short-positive.mp3');
   }
 
   componentDidMount () {
-    window.addEventListener("scroll", function (event) {
-      var scroll = this.scrollY;
-    });
-
     window.addEventListener("resize", function (event) {
       this.canvasSize();
     }.bind(this));
@@ -33,8 +28,11 @@ class HeaderHome extends React.Component {
   componentWillUnmount() {}
 
   playSounds() {
-    this.setState({ playSoundEat: !this.state.playSoundEat }, () => {
-      this.state.playSoundEat ? this.soundEat.play() : this.soundEat.pause();
+    this.setState({
+      soundEat: new Audio('../audio/ping-short-positive.mp3'),
+      playSoundEat: !this.state.playSoundEat 
+      }, () => {
+      this.state.playSoundEat ? this.state.soundEat.play() : this.state.soundEat.pause();
     });
   }
 
@@ -104,7 +102,7 @@ class HeaderHome extends React.Component {
         : [nextHead(state)].concat(dropLast(state.snake)));
 
     const rndPos = function(table) {
-      //this.playSounds();
+      this.playSounds();
       this.setState({
         points: this.state.points + 1,
         playSoundEat: false
