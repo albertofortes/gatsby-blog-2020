@@ -4,7 +4,7 @@ subtitle: This is my very first post in my brand new React based (Gatsby) blog!
 date: 2019-05-07
 update: 2020-01-01
 banner: ../../images/blog/hello-world.png
-tags: ['gatsby']
+tags: ['JavaScript', 'twitter', 'Gatsby']
 ---
 
 This is my first MD post file. I will do a new blog based in Gatsby and Markdown served via Github.

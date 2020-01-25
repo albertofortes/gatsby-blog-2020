@@ -4,7 +4,7 @@ subtitle: Syntax highlighting to the code blocks
 date: 2019-05-08
 update: 2020-01-03
 banner: ../../images/blog/code-highlight.png
-tags: ['javascript', 'markdown', 'gatsby']
+tags: ['JavaScript', 'markdown', 'Gatsby']
 ---
 
 If you are using Gatsby as static website or blog, probably you are a developer. In that case, you will need code syntax highlighting to the code blocks. As usual Gatsby provide us an easy way to achieve it into the markdown.
