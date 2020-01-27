@@ -60,7 +60,7 @@ const ContactPage = ({ children }) => {
         <div className="article__cont">
           <h3 className="article__claim t-c">Do you have any project I can help you as freelance? Do you have a cool project and you need to hire me as long-time contractor into the company staff? I've been more than 14 years coding as JavaScript, CSS, HTML… Working with several companies and startups so maybe I can help you.</h3>
           
-          <form className="genericforms" onSubmit={formik.handleSubmit} data-netlify="true" netlify-honeypot="bot-field" name="albertofortes-contact-form">
+          <form className="genericforms" data-netlify="true" netlify-honeypot="bot-field" name="albertofortes-contact-form">
 
             { ( (formik.touched.your_name && formik.errors.your_name) || (formik.touched.your_email && formik.errors.your_email) || (formik.touched.your_message && formik.errors.your_message) )  
               ? <div className="genericforms__alert">
@@ -90,6 +90,8 @@ const ContactPage = ({ children }) => {
               <button className="genericforms__field__btn" type="submit">Submit</button>
             </div>
           </form>
+
+          <p className="t-c"><strong>Pss… <br />or even better sending me a direct <a href="mailto:albertofortes@gmail.com">Email</a>.</strong></p>
         </div>
       </article>
     </Layout>
