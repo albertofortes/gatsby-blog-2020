@@ -17,6 +17,7 @@ const LayoutHome = ({ children }) => {
           title
           role
           description
+          who
         }
       }
     }
@@ -26,7 +27,7 @@ const LayoutHome = ({ children }) => {
     <>
       <HeaderHome 
         siteRole={data.site.siteMetadata.role}
-        siteDescription={data.site.siteMetadata.description}
+        siteDescription={data.site.siteMetadata.who}
       />
     </>
   )

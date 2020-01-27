@@ -37,9 +37,6 @@ class Header extends React.Component {
             <li><Link to="/contact/" activeClassName="active">Contact me</Link></li>
           </ul>
         </nav>
-        {/*<div className="header__container">
-          <h2><strong>Front-end senior developer</strong> from 2006, UX/UI Engineer, working in remote, globally with companies, startups and agencies.</h2>
-        </div>*/}
       </header>
     )
   }

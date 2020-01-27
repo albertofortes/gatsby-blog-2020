@@ -45,8 +45,4 @@ const AboutMe = ({ children }) => {
   )
 }
 
-AboutMe.propTypes = {
-  children: PropTypes.node.isRequired,
-} 
-
 export default AboutMe
