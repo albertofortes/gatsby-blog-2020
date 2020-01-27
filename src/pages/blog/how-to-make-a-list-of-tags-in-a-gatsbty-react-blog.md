@@ -4,7 +4,7 @@ subtitle: Basic how to code a simple comma separated tag list in a blog post don
 date: 2020-01-04
 update: 2020-01-04
 banner: ../../images/blog/100-days-of-gatsby-challenge.png
-tags: ['javascript', '#100DaysOfGatsby', 'gatsby']
+tags: ['JavaScript', '#100DaysOfGatsby', 'Gatsby']
 ---
 
 This is a basic tutorial belongs to [#100DaysOfGatsby Challenge](https://twitter.com/hashtag/100DaysOfGatsby).

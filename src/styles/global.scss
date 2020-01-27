@@ -21,16 +21,21 @@ body {
   text-align: justify;
 }
 
-#snake-canvas {
-  display: none;
-
-  @media only screen and (min-width: $breakpoint-md) {
-    display: block;
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    right: 2rem;
-    bottom: 50%;
-    z-index: 0;
+.sr-only {
+  border: 0; 
+  clip: rect(0 0 0 0); 
+  height: 1px; 
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  
+  &:focus {
+    outline: none;
   }
+}
+
+.hidden {
+  display: none;
 }

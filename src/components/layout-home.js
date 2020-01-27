@@ -7,7 +7,8 @@
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import HeaderHome from "./header-home.js"
+import Header from "./header.js"
+import HomeGame from "./home-game.js"
 
 const LayoutHome = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -17,6 +18,7 @@ const LayoutHome = ({ children }) => {
           title
           role
           description
+          who
         }
       }
     }
@@ -24,9 +26,14 @@ const LayoutHome = ({ children }) => {
 
   return (
     <>
-      <HeaderHome 
+      <Header className="header" 
+        siteTitle={data.site.siteMetadata.title}
         siteRole={data.site.siteMetadata.role}
         siteDescription={data.site.siteMetadata.description}
+      />
+      <HomeGame 
+        siteRole={data.site.siteMetadata.role}
+        siteDescription={data.site.siteMetadata.who}
       />
     </>
   )

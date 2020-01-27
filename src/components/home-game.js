@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 //import PropTypes from "prop-types"
 import React from "react"
 
-class HeaderHome extends React.Component {
+class HomeGame extends React.Component {
   constructor() {
     super();
 
@@ -193,7 +193,7 @@ class HeaderHome extends React.Component {
     const { siteRole, siteDescription } = this.props
 
     return (
-      <header id="headerHome" className="header-home">
+      <div className="header-home">
         <div id="wrap" className="wrapper">
           <div className="who">
             <h1>Hola, I'm <strong>Alberto Fortes</strong>,</h1>
@@ -203,17 +203,15 @@ class HeaderHome extends React.Component {
               <a href="https://www.linkedin.com/in/albertofortes">Linkedin</a>
               <a href="https://dribbble.com/albertofortes">Dribble</a>
               <a href="https://twitter.com/albertofs">Twitter</a>
-              <Link to="/about/">About me</Link>
-              <Link to="/blog/">Blog</Link>
-              <a href="mailto:albertofortes@gmail.com">Email</a>
+                  <a href="mailto:albertofortes@gmail.com">Email</a>
             </p>
           </div>
           <canvas id="snake-canvas" width={this.state.headerWidth} height={this.state.headerHeight}></canvas>
           <div className="score-board">{this.state.points}</div>
         </div>
-      </header>
+      </div>
     )
   }
 }
 
-export default HeaderHome
+export default HomeGame

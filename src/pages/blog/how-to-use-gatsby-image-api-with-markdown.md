@@ -1,10 +1,10 @@
 ---
-title: How to use Gatsby Image API with markdown files.
-subtitle: Some notes about working with Images in Markdown Posts and Pages
+title: How to use Gatsby Image API with markdown and static files.
+subtitle: Some notes about working with Images in Markdown Posts and JSX Pages. Belongs to Challenge 3 - Auto-Optimize Images on Your Gatsby Site.
 date: 2020-01-21
 update: 2020-01-21
 banner: ../../images/blog/100-days-of-gatsby-challenge.png
-tags: ['javascript', '#100DaysOfGatsby', 'gatsby', 'performance', 'audit', 'SEO']
+tags: ['JavaScript', '#100DaysOfGatsby', 'Gatsby', 'performance', 'audit', 'SEO']
 ---
 
 Third Challenge on [#100DaysOfGatsby Challenge](https://twitter.com/hashtag/100DaysOfGatsby "100 Days of Gatsby Challenge") is about performance: **Auto-Optimize Images on Your Gatsby Site**.
