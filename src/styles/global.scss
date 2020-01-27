@@ -39,17 +39,3 @@ body {
 .hidden {
   display: none;
 }
-
-#snake-canvas {
-  display: none;
-
-  @media only screen and (min-width: $breakpoint-md) {
-    display: block;
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    right: 2rem;
-    bottom: 50%;
-    z-index: 0;
-  }
-}
