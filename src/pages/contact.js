@@ -95,7 +95,7 @@ return (
       <div className="article__cont">
         <h3 className="article__claim t-c">Do you have any project I can help you as freelance? Do you have a cool project and you need to hire me as long-time contractor into the company staff? I've been more than 14 years coding as JavaScript, CSS, HTML… Working with several companies and startups so maybe I can help you.</h3>
         
-        <form name="contact" method="post" className="genericforms" onSubmit={formik.handleSubmit} data-netlify="true" netlify-honeypot="bot-field">
+        <form name="contact/" method="post" className="genericforms" onSubmit={formik.handleSubmit} data-netlify="true" netlify-honeypot="bot-field">
           { ( (formik.touched.your_name && formik.errors.your_name) || (formik.touched.your_email && formik.errors.your_email) || (formik.touched.your_message && formik.errors.your_message) )  
             ? <div className="genericforms__alert">
                 { formik.errors.your_email ? (<p>{formik.errors.your_email}</p>) : null }
