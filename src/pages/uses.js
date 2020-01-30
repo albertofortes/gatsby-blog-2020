@@ -1,7 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import PropTypes from "prop-types"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -48,12 +47,12 @@ const AboutMe = ({ children }) => {
             <li>Old mouse, I've spent money in expensive mouses as Magic Mouse, and I'm never happy with them. So an optical with cable one is OK to me.</li>
             <li>Griffin aluminium macbook stand.</li>
             <li>Ikea 150cm table + Ikea KALLAX Shelving unit lying on the floor as table.</li>
-            <li>🖨️ Printer and scanner.</li>
-            <li>Arcade cabinet made by me 🕹️ + 24" Monitor + Raspberry Pi 3B Plus.</li>
-            <li>💪 Multigym machine.</li>
-            <li>TV + Playstation + Sofa 🛋️ Relax zone.</li>
-            <li>Bookcase stand with many books and mags 📚 in the relax zone.</li>
-            <li>A desk 🏄🏻 ready for desksurfing. Developer / designer interested?</li>
+            <li><span role="img" aria-label="printer">🖨️</span> Printer and scanner.</li>
+            <li>Arcade cabinet made by me <span role="img" aria-label="joystick">🕹️</span> + 24" Monitor + Raspberry Pi 3B Plus.</li>
+            <li><span role="img" aria-label="strong">💪</span> Multigym machine.</li>
+            <li>TV + Playstation + Sofa <span role="img" aria-label="sofa"></span>🛋️ Relax zone.</li>
+            <li>Bookcase stand with many books and mags <span role="img" aria-label="books">📚</span> in the relax zone.</li>
+            <li>A desk <span role="img" aria-label="surfing">🏄🏻</span> ready for desksurfing. Developer / designer interested?</li>
           </ul>
           <h4>Software:</h4>
           <ul>

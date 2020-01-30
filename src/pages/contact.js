@@ -1,9 +1,9 @@
 import React from "react"
-import { useStaticQuery, Link, graphql } from "gatsby"
-import PropTypes from "prop-types"
+import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { useFormik } from 'formik';
+import axios from 'axios';
 
 const ContactPage = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -47,10 +47,27 @@ const ContactPage = ({ children }) => {
       your_message: '',
     },
     validate,
-    onSubmit: values => {
+    onSubmit: (values, { setSubmitting }) => {
+      // https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
       // same shape as initial values
       console.log(values);
-      console.log(JSON.stringify(values, null, 2));
+      setTimeout(() => {
+        // axios POST
+        const appURL = '/'
+        axios.post(appURL, {
+            name: values.your_name,
+            email: values.your_email,
+            message: values.your_message
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+        setSubmitting(false);
+      }, 400)  
     }
   });
 
@@ -62,8 +79,7 @@ const ContactPage = ({ children }) => {
         <div className="article__cont">
           <h3 className="article__claim t-c">Do you have any project I can help you as freelance? Do you have a cool project and you need to hire me as long-time contractor into the company staff? I've been more than 14 years coding as JavaScript, CSS, HTML… Working with several companies and startups so maybe I can help you.</h3>
           
-          <form name="contact-albertofortes" method="post" data-netlify="true" data-netlify-honeypot="bot-field" className="genericforms">
-
+          <form name="contact" method="post" className="genericforms" onSubmit={formik.handleSubmit} data-netlify="true" netlify-honeypot="bot-field">
             { ( (formik.touched.your_name && formik.errors.your_name) || (formik.touched.your_email && formik.errors.your_email) || (formik.touched.your_message && formik.errors.your_message) )  
               ? <div className="genericforms__alert">
                   { formik.errors.your_email ? (<p>{formik.errors.your_email}</p>) : null }
