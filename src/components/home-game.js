@@ -25,8 +25,6 @@ class HomeGame extends React.Component {
     this.snakeGame();
   }
 
-  componentWillUnmount() {}
-
   playSounds() {
     this.setState({
       soundEat: new Audio('../audio/ping-short-positive.mp3'),

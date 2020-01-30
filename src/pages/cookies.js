@@ -57,8 +57,4 @@ const CookiesPage = ({ children }) => {
   )
 }
 
-CookiesPage.propTypes = {
-  children: PropTypes.node.isRequired,
-} 
-
 export default CookiesPage

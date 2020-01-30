@@ -47,9 +47,11 @@ const ContactPage = ({ children }) => {
       your_message: '',
     },
     validate,
-    /*onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-    },*/
+    onSubmit: values => {
+      // same shape as initial values
+      console.log(values);
+      console.log(JSON.stringify(values, null, 2));
+    }
   });
 
   return (
