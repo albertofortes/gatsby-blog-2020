@@ -36,6 +36,88 @@ module.exports = {
        // cookieDomain: "example.com",
       },
     },
+    {
+      resolve: `gatsby-source-googlemaps-static`,
+      options: {
+        key: `AIzaSyDgpAywijmTC10P6L0f9h9l-0U2yCxStnM`,
+        center: `Seville`,
+        zoom: `15`,
+        //size: `100x300`,
+        scale: `1`,
+        mapType: `ROADMAP`,
+        styles: [
+          {
+        elementType: `geometry`, 
+        stylers: [{color: `#0067b3`}]
+      },
+      {
+        elementType: `labels.text.stroke`, stylers: [{color: `#0063b2`}]
+      },
+      {
+        elementType: `labels.text.fill`, stylers: [{color: `#23bde1`}]
+      },
+      {
+        featureType: `administrative.country`,
+        elementType: `labels.text.fill`,
+        stylers: [{color: `#23bde1`}]
+      },
+      {
+        featureType: `administrative.land_parcel`,
+        elementType: `labels.text.fill`,
+        stylers: [{color: `#23bde1`}]
+      },
+      {
+        featureType: `administrative.locality`,
+        elementType: `labels.text.fill`,
+        stylers: [{color: `#23bde1`}]
+      },
+      {
+        featureType: `administrative.neighborhood`,
+        elementType: `labels.text.fill`,
+        stylers: [{color: `#23bde1`}]
+      },
+      {
+        featureType: `administrative.province`,
+        elementType: `labels.text.fill`,
+        stylers: [{color: `#23bde1`}]
+      },
+      {
+        featureType: `poi`,
+        elementType: `geometry`,
+        stylers: [{color: `#1a71b3`}]
+      },
+      {
+        featureType: `poi`,
+        elementType: `labels.text.fill`,
+        stylers: [{color: `#0089da`}]
+      },
+      {
+        featureType: `poi.park`,
+        elementType: `geometry`,
+        stylers: [{color: `#006bdc`}]
+      },
+      {
+        featureType: `administrative.locality`,
+        stylers: [{color: `#0068d8`}]
+      },
+      {
+        featureType: `water`,
+        elementType: `geometry`,
+        stylers: [{color: `#006bdc`}]
+      },
+      {
+        featureType: `road`,
+        elementType: `geometry`,
+        stylers: [{color: `#0061aa`}]
+      },
+      {
+        featureType: `road.highway`,
+        elementType: `geometry`,
+        stylers: [{color: `#0061aa`}]
+      },
+        ]
+      },
+    },
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
