@@ -65,7 +65,7 @@ const formik = useFormik({
     console.log(values);
     setTimeout(() => {
       // axios POST
-      const appURL = '/'
+      const appURL = '/contact'
       axios.post(appURL, {
           name: values.your_name,
           email: values.your_email,
