@@ -63,7 +63,8 @@ const formik = useFormik({
     var postData = {
       name: values.your_name,
       email: values.your_email,
-      message: values.your_message
+      message: values.your_message,
+      'form-name': 'contact-form',
     };
 
     const appURL = '/contact';
@@ -98,16 +99,16 @@ return (
         <h3 className="article__claim t-c">Do you have any project I can help you as freelance? Do you have a cool project and you need to hire me as long-time contractor into the company staff? I've been more than 14 years coding as JavaScript, CSS, HTML… Working with several companies and startups so maybe I can help you.</h3>
         
         <form
-          name="contact"
+          name="contact-form"
           action="/thanks/"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={formik.handleSubmit}
           className="genericforms"
-          method="POST" enctype="application/x-www-form-urlencoded">
+          method="POST">
             
           {/* The `form-name` hidden field is required to support form submissions */}
-          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="form-name" value="contact-form" />
           { ( (formik.touched.your_name && formik.errors.your_name) || (formik.touched.your_email && formik.errors.your_email) || (formik.touched.your_message && formik.errors.your_message) )  
             ? <div className="genericforms__alert">
                 { formik.errors.your_email ? (<p>{formik.errors.your_email}</p>) : null }
