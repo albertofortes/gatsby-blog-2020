@@ -104,7 +104,7 @@ return (
           data-netlify-honeypot="bot-field"
           onSubmit={formik.handleSubmit}
           className="genericforms"
-          method="POST" >
+          method="POST" enctype="application/x-www-form-urlencoded">
             
           {/* The `form-name` hidden field is required to support form submissions */}
           <input type="hidden" name="form-name" value="contact" />
