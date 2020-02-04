@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { useFormik } from 'formik';
 import axios from 'axios';
+import { navigate } from 'gatsby-link'
 
 
 const ContactPage = ({ children }) => {
@@ -59,27 +60,50 @@ const formik = useFormik({
     your_message: '',
   },
   validate,
-  onSubmit: (values, { setSubmitting }) => {
+ 
+  /*handleSubmit: (e) => {
+    e.preventDefault();
+    console.log(values);
+    const form = e.target;
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        'name': values.your_name,
+        'email': values.your_email,
+        'message': values.your_message
+      }),
+    })
+      .then(() => navigate(form.getAttribute('action')))
+      .catch((error) => alert(error))
+  }*/
+
+  handleSubmit: (values, { setSubmitting }) => {
     // https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
     // same shape as initial values
-    console.log(values);
-    setTimeout(() => {
+    //console.log(values);
+   // setTimeout(() => {
       // axios POST
-      const appURL = '/contact/'
+      const appURL = '/'
       axios.post(appURL, {
-        name: values.your_name,
-        email: values.your_email,
-        message: values.your_message
+        headers: { Authorization: "Bearer " + token },
+        data: {
+          name: values.your_name,
+          email: values.your_email,
+          message: values.your_message
+        }
       })
       .then(function (response) {
           console.log(response);
+          navigate(form.getAttribute('action'))
       })
       .catch(function (error) {
           console.log(error);
       });
 
       setSubmitting(false);
-    }, 400)  
+    //}, 400)  
   }
 });
 
@@ -95,8 +119,17 @@ return (
       <div className="article__cont">
         <h3 className="article__claim t-c">Do you have any project I can help you as freelance? Do you have a cool project and you need to hire me as long-time contractor into the company staff? I've been more than 14 years coding as JavaScript, CSS, HTML… Working with several companies and startups so maybe I can help you.</h3>
         
-        <form name="contact" action="/thanks" method="post" className="genericforms" onSubmit={formik.handleSubmit} data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contact" />
+        <form
+          name="contact"
+          method="post"
+          action="/thanks/"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={formik.handleSubmit}
+          className="genericforms"
+        ></form>
+          {/* The `form-name` hidden field is required to support form submissions */}
+          <input type="hidden" name="form-name" value="contact" />
           { ( (formik.touched.your_name && formik.errors.your_name) || (formik.touched.your_email && formik.errors.your_email) || (formik.touched.your_message && formik.errors.your_message) )  
             ? <div className="genericforms__alert">
                 { formik.errors.your_email ? (<p>{formik.errors.your_email}</p>) : null }
