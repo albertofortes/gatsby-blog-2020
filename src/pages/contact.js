@@ -38,7 +38,7 @@ const validate = values => {
 
   if (!values.your_message) {
     errors.your_message = 'Message required.';
-  } else if (values.your_message.length < 15) {
+  } else if (values.your_message.length < 10) {
     errors.your_message = 'Must be 15 characters at least.';
   }
 
@@ -59,9 +59,28 @@ const formik = useFormik({
     your_message: '',
   },
   validate,
-  handleSubmit: (values, { setSubmitting }) => {
+ 
+  /*handleSubmit: (e) => {
+    e.preventDefault();
+    console.log(values);
+    const form = e.target;
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        'name': values.your_name,
+        'email': values.your_email,
+        'message': values.your_message
+      }),
+    })
+      .then(() => navigate(form.getAttribute('action')))
+      .catch((error) => alert(error))
+  }*/
+
+  onSubmit: (values, { setSubmitting }) => {
     var postData = {
-      email: values.your_name,
+      name: values.your_name,
       email: values.your_email,
       message: values.your_message
     };
@@ -76,12 +95,12 @@ const formik = useFormik({
     };
 
     axios.post(appURL, postData, axiosConfig)
-    .then((res) => {
-      console.log("RESPONSE RECEIVED: ", res);
-    })
-    .catch((err) => {
-      console.log("AXIOS ERROR: ", err);
-    })
+      .then((res) => {
+        console.log("RESPONSE RECEIVED: ", res);
+      })
+      .catch((err) => {
+        console.log("AXIOS ERROR: ", err);
+      })
   }
 });
 
@@ -107,7 +126,6 @@ return (
           className="genericforms" >
           {/* The `form-name` hidden field is required to support form submissions */}
           <input type="hidden" name="form-name" value="contact" />
-
           { ( (formik.touched.your_name && formik.errors.your_name) || (formik.touched.your_email && formik.errors.your_email) || (formik.touched.your_message && formik.errors.your_message) )  
             ? <div className="genericforms__alert">
                 { formik.errors.your_email ? (<p>{formik.errors.your_email}</p>) : null }
