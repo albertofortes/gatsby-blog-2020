@@ -5,7 +5,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { useFormik } from 'formik';
 import axios from 'axios';
-import { navigate } from 'gatsby-link'
 
 
 const ContactPage = ({ children }) => {
@@ -60,50 +59,29 @@ const formik = useFormik({
     your_message: '',
   },
   validate,
- 
-  /*handleSubmit: (e) => {
-    e.preventDefault();
-    console.log(values);
-    const form = e.target;
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': form.getAttribute('name'),
-        'name': values.your_name,
-        'email': values.your_email,
-        'message': values.your_message
-      }),
-    })
-      .then(() => navigate(form.getAttribute('action')))
-      .catch((error) => alert(error))
-  }*/
-
   handleSubmit: (values, { setSubmitting }) => {
-    // https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
-    // same shape as initial values
-    //console.log(values);
-   // setTimeout(() => {
-      // axios POST
-      const appURL = '/'
-      axios.post(appURL, {
-        headers: { Authorization: "Bearer " + token },
-        data: {
-          name: values.your_name,
-          email: values.your_email,
-          message: values.your_message
-        }
-      })
-      .then(function (response) {
-          console.log(response);
-          navigate(form.getAttribute('action'))
-      })
-      .catch(function (error) {
-          console.log(error);
-      });
+    var postData = {
+      email: values.your_name,
+      email: values.your_email,
+      message: values.your_message
+    };
 
-      setSubmitting(false);
-    //}, 400)  
+    const appURL = '/';
+
+    let axiosConfig = {
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8',
+        "Access-Control-Allow-Origin": "*",
+      }
+    };
+
+    axios.post(appURL, postData, axiosConfig)
+    .then((res) => {
+      console.log("RESPONSE RECEIVED: ", res);
+    })
+    .catch((err) => {
+      console.log("AXIOS ERROR: ", err);
+    })
   }
 });
 
@@ -126,10 +104,10 @@ return (
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={formik.handleSubmit}
-          className="genericforms"
-        ></form>
+          className="genericforms" >
           {/* The `form-name` hidden field is required to support form submissions */}
           <input type="hidden" name="form-name" value="contact" />
+
           { ( (formik.touched.your_name && formik.errors.your_name) || (formik.touched.your_email && formik.errors.your_email) || (formik.touched.your_message && formik.errors.your_message) )  
             ? <div className="genericforms__alert">
                 { formik.errors.your_email ? (<p>{formik.errors.your_email}</p>) : null }
