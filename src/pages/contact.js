@@ -66,11 +66,11 @@ const formik = useFormik({
       message: values.your_message
     };
 
-    const appURL = 'https://www.albertofortes.com/contact';
+    const appURL = '/contact';
 
     let axiosConfig = {
       headers: {
-        'Content-Type': 'application/json;charset=UTF-8',
+        'Content-Type': 'application/x-www-form-urlencoded',
         "Access-Control-Allow-Origin": "*",
       }
     };
@@ -99,12 +99,12 @@ return (
         
         <form
           name="contact"
-          method="post"
           action="/thanks/"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={formik.handleSubmit}
-          className="genericforms" >
+          className="genericforms"
+          method="POST" >
             
           {/* The `form-name` hidden field is required to support form submissions */}
           <input type="hidden" name="form-name" value="contact" />
