@@ -11,5 +11,6 @@ As well, I will try to create at least a blog entry for any challenge.
 2. Challenge 2 - [Host Your Gatsby Site for Free](https://www.gatsbyjs.org/blog/100days/free-hosting/)
 3. Challenge 3 - [Auto-Optimize Images on Your Gatsby Site](https://www.gatsbyjs.org/blog/100days/gatsby-image/)
 4. Challenge 4 - [Add Third-Party React Components to Your Gatsby Site](https://www.gatsbyjs.org/blog/100days/react-component/)
+5. Challenge 5 - [Add React Components in Markdown](https://www.gatsbyjs.org/blog/100days/mdx/).
 
 EOF
