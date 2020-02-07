@@ -7,7 +7,7 @@ banner: ../../images/blog/reactjs.jpg
 tags: ['JavaScript', 'React', 'reactjs']
 ---
 
-As the official [ReactJS documentation defines](https://reactjs.org/docs/components-and-props.html) we can define React components in two ways:
+According to the official [ReactJS documentation](https://reactjs.org/docs/components-and-props.html) we can define React components in two ways:
 
 - As a function
 - or as a EC6 Class
@@ -39,7 +39,7 @@ You can find more details again in official documentation about [class component
 
 But to summarize, I would say that the main purpose to use ES6 class components instead of function components is just the use of states.
 
-If you don't have states, and just use props, you can use function, you don't need to use a class based component. Even more when React 16.8 introduced the hooks, and you can use [useState hook](https://reactjs.org/docs/hooks-state.htm)] and [useEffect hook](https://reactjs.org/docs/hooks-effect.html) which is similar to componentDidMount, componentDidUpdate and componentWillUnmount combined.
+If you don't have states, and just use props, you can use function, you don't need to use a class based component. Even more when React 16.8 introduced the hooks, and you can use [useState hook](https://reactjs.org/docs/hooks-state.htm) and [useEffect hook](https://reactjs.org/docs/hooks-effect.html) which is similar to componentDidMount, componentDidUpdate and componentWillUnmount combined.
 
 
 According to React Team, functional components are:
