@@ -14,6 +14,17 @@
     justify-content: center;
   }
 
+  .particles {
+    > canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+  }
+
   a {
     text-decoration: underline;
     color:$tertiary-color;
@@ -60,6 +71,16 @@
 
   display: block;
   z-index: 1;
+
+  .particles {
+    > canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
   
   .who {
     width: 100%;
@@ -69,6 +90,10 @@
     justify-content: flex-end;
     z-index: 1;
     position: relative;
+
+    @media only screen and (min-width: $breakpoint-md) {
+     width: 60%;
+    }
 
     h1 {
       strong {
@@ -111,9 +136,21 @@
   }
 
   h2 {
-    font: normal 700 2rem $primaryFont;
+    font: normal 400 2rem $primaryFont;
     margin: 0 0 1rem;
     color: #fff;
+  }
+
+  h3 {
+    font: normal 300 2rem $primaryFont;
+    margin: 0 0 1rem;
+    color: $quinary-color;
+  }
+
+  h1, h2, h3 {
+    strong {
+      color: $secondary-color;
+    }
   }
 
   .wrapper {

@@ -1,6 +1,59 @@
 //import { Link } from "gatsby"
 //import PropTypes from "prop-types"
 import React from "react"
+import Particles from 'react-particles-js';
+
+const particlesOptions = {
+  "particles": {
+    "number": {
+        "value": 160,
+        "density": {
+            "enable": false
+        }
+    },
+    "size": {
+        "value": 3,
+        "random": true,
+        "anim": {
+            "speed": 4,
+            "size_min": 0.3
+        }
+    },
+    "line_linked": {
+        "enable": false
+    },
+    "move": {
+        "random": true,
+        "speed": 1,
+        "direction": "top",
+        "out_mode": "out"
+    }
+},
+"interactivity": {
+    "events": {
+        "onhover": {
+            "enable": true,
+            "mode": "bubble"
+        },
+        "onclick": {
+            "enable": true,
+            "mode": "repulse"
+        }
+    },
+    "modes": {
+        "bubble": {
+            "distance": 250,
+            "duration": 2,
+            "size": 0,
+            "opacity": 0
+        },
+        "repulse": {
+            "distance": 400,
+            "duration": 4
+        }
+    }
+  }
+}
 
 class HomeGame extends React.Component {
   constructor() {
@@ -194,8 +247,8 @@ class HomeGame extends React.Component {
       <div className="header-home">
         <div id="wrap" className="wrapper">
           <div className="who">
-            <h1>Hola, I'm <strong>Alberto Fortes</strong>,</h1>
-            <h2>{siteRole}</h2>
+            <h1>Hi there, I'm <strong>Alberto</strong>,</h1>
+            <h2>a {siteRole}</h2>
             <div className="who__desc" dangerouslySetInnerHTML={{ __html: siteDescription }} />
             <p className="who__links">
               <a href="https://www.linkedin.com/in/albertofortes">Linkedin</a>
@@ -203,10 +256,12 @@ class HomeGame extends React.Component {
               <a href="https://twitter.com/albertofs">Twitter</a>
               <a href="mailto:albertofortes@gmail.com">Email</a>
             </p>
+            <h3>By the way, if you are visiting this website from a desktop computer, you can play the <strong>JavaScript Vanilla + React snake game</strong> above, happy gaming!</h3>
           </div>
           <canvas id="snake-canvas" width={this.state.headerWidth} height={this.state.headerHeight}></canvas>
           <div className="score-board">{this.state.points}</div>
         </div>
+        <Particles params={particlesOptions} className={'particles'} />
       </div>
     )
   }
