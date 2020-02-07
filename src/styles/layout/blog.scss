@@ -166,6 +166,7 @@ article.article {
 
     strong {
       font-weight: 700;
+      color: #fff;
     }
 
     ul {
@@ -187,7 +188,7 @@ article.article {
 
     a {
       text-decoration: underline;
-      color:$tertiary-color;
+      color: $quinary-color;
 
       &:hover {
         color: $quinary-color;
