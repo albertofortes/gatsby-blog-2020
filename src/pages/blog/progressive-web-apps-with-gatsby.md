@@ -109,12 +109,14 @@ It is important that this plugin should be listed before the offline plugin so t
 
 **We need to install both, and don’t forget to list the offline plugin after the manifest plugin so that the manifest file can be included in the service worker.**
 
+---
+
 ## Extra ball: Do you have an issue while building?
 
 I had this issue:
 
 > A page component must export a React component for it to be valid. Please make sure this file exports a React component:
-> /Users/albertofortes/code/100DaysOfGatsby_challenge/001_Gatsby_Blog_from_Scratch/node_modules/gatsby-plugin-offline/app-shell.js
+> ...node_modules/gatsby-plugin-offline/app-shell.js
 
 This is due to a know issue with the latest gatsby-plugin-offline 2.2.10, so meanwhile they solve it this is the quick fix:
 

@@ -156,8 +156,13 @@ article.article {
     h1, h2, h3, h4, h5, h6 {
       margin: 2em 0;
       font-weight: 500;
-      font-size: 2rem;
-      color: #fff;
+      font-size: 2.25rem;
+      color: orange;
+    }
+
+    hr {
+      margin: 2em 0;
+      border-color: $tertiary-color;
     }
 
     em, i {
@@ -200,7 +205,11 @@ article.article {
       padding: .5rem 0 .5rem 2rem;
       border-left: .4rem solid $tertiary-color;
       color: #fff;
-      margin: 4rem 0 4rem -2.6rem;
+      margin: 4rem 0;
+
+      @media only screen and (min-width: $breakpoint-md) {
+        margin: 4rem 0 4rem -2.6rem;
+      }
 
       p:last-child {
         margin-bottom: 0;
