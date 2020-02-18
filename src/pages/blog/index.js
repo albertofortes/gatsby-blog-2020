@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 
-export default ({ data }) => {
+const BlogIndex = ({ data }) => {
   return (
     <Layout>
       <SEO title="Blog" description={data.site.siteMetadata.description} />
@@ -23,6 +23,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default AboutMe
 
 export const query = graphql`
   query {
