@@ -24,7 +24,7 @@ const BlogIndex = ({ data }) => {
   )
 }
 
-export default AboutMe
+export default BlogIndex
 
 export const query = graphql`
   query {
