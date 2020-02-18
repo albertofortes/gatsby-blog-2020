@@ -181,10 +181,45 @@ module.exports = {
         theme_color: `#0e2439`,
         display: `standalone`,
         icon: `src/images/icon-48x48.png`, // This path is relative to the root of the site.
+        icons: [ // manually, so they go to static folder
+          {
+            src: `/static/icons/android-icon-48x48.png`,
+            sizes: `48x48`,
+            type: `image/png`,
+          },
+          {
+            src: `/static/icons/android-icon-72x72.png`,
+            sizes: `72x72`,
+            type: `image/png`,
+          },
+          {
+            src: `/static/icons/android-icon-96x96.png`,
+            sizes: `96x96`,
+            type: `image/png`,
+          },
+          {
+            src: `/static/icons/android-icon-144x144.png`,
+            sizes: `144x144`,
+            type: `image/png`,
+          },
+          {
+            src: `/static/icons/android-icon-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `/static/icons/ms-icon-310x310.png`,
+            sizes: `310x310`,
+            type: `image/png`,
+          }
+        ]
       }
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    //`gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/`, `/blog/*`],
+      },
+    }    
   ],
 }

@@ -129,7 +129,7 @@ article.article {
   }
 
   .article__image {
-    margin: 3rem 0;
+    margin: 3rem 0 6rem;
     width: 100%;
     box-shadow: -1rem 1rem 0 #1f364d, 1rem -1rem 0 #1f364d;
 
@@ -154,7 +154,7 @@ article.article {
     }
 
     h1, h2, h3, h4, h5, h6 {
-      margin-bottom: 1em;
+      margin: 2em 0;
       font-weight: 500;
       font-size: 2rem;
       color: #fff;
@@ -182,8 +182,29 @@ article.article {
       }
     }
 
+    ol {
+      list-style: decimal;
+      margin: 0 0 1rem 3rem;
+
+      li {
+        margin: .5rem 0;
+      }
+    }
+
     code {
-      font-family: normal 400 1.4rem/1.25 "Lucida Console", Monaco, monospace;
+      font: normal 400 1.4rem/1.25 "Lucida Console", Monaco, monospace;
+    }
+
+    blockquote {
+      font: normal 400 1.8rem/1.8 $secondaryFont;
+      padding: .5rem 0 .5rem 2rem;
+      border-left: .4rem solid $tertiary-color;
+      color: #fff;
+      margin: 4rem 0 4rem -2.6rem;
+
+      p:last-child {
+        margin-bottom: 0;
+      }
     }
 
     a {
