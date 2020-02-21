@@ -98,12 +98,6 @@ article.article {
     }
   }
 
-  .article__claim {
-    color: #fff;
-    margin: 1rem 0;
-    font: normal $dpFontWeightMedium 2rem/1.25 $primaryFont;
-  }
-
   .article__date {
     margin: 0 0 2rem;
     font: normal $dpFontWeightMedium 1.4rem/1 $primaryFont;
@@ -157,7 +151,13 @@ article.article {
       margin: 2em 0;
       font-weight: 500;
       font-size: 2.25rem;
-      color: orange;
+      color: #a6e22e;
+
+      &.article__claim {
+        color: #fff;
+        margin: 1rem 0;
+        font: normal $dpFontWeightMedium 2rem/1.25 $primaryFont;
+      }
     }
 
     hr {
