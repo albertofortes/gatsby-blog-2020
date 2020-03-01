@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 
 const IndexPage = ({ children }) => {
   const data = useStaticQuery(graphql`
-     {
+    {
       site {
         siteMetadata {
           title
@@ -16,6 +16,11 @@ const IndexPage = ({ children }) => {
       }
     }
   `)
+
+  let meta = [];
+
+  console.log('SEO:');
+  console.log(data.site.siteMetadata.title);
 
   return (
     <LayoutHome>

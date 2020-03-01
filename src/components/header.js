@@ -10,7 +10,7 @@ class Header extends React.Component {
   }
 
   componentDidMount () {
-    this.menuTrigger =  document.getElementById("menuTrigger");
+    this.menuTrigger =  document.getElementById('menuTrigger');
     this.menuTrigger.addEventListener("click", this.openMobileMenu, false); 
   }
 
@@ -28,14 +28,14 @@ class Header extends React.Component {
   render () {
     return (
       <header className="header">
-        <h1 className="header__logo">Hola, I'm <Link to="/">Alberto Fortes.</Link></h1>
+        <h1 className="header__logo">Hola, I'm <Link to="/" title="Front-end senior developer with strong background with Javascript, React, CSS, Responsive design, UI development with aesthetic care.">Alberto Fortes.</Link></h1>
         <button className="header__mobilebtn" id="menuTrigger" aria-label="Abrir menú"></button>
         <nav className="header__nav">
           <ul>
-            <li><Link to="/about" activeClassName="active">About me</Link></li>
-            <li><Link to="/blog/" activeClassName="active">Blog</Link></li>
-            <li><Link to="/uses/" activeClassName="active">Uses</Link></li>
-            <li><Link to="/contact/" activeClassName="active">Contact me</Link></li>
+            <li><Link to="/about" activeClassName="active" title="About Alberto Fortes, and how I became from MA. Philosophy to front-end developer available to hire as contractor">About me</Link></li>
+            <li><Link to="/blog/" activeClassName="active" title="Blog about Front-end development, JavaScript, CSS, React, Gatsby, etc">Blog</Link></li>
+            <li><Link to="/uses/" activeClassName="active" title="What I use as front-end JavaScript senior developer">Uses</Link></li>
+            <li><Link to="/contact/" activeClassName="active" title="Contact with me">Contact me</Link></li>
           </ul>
         </nav>
       </header>
