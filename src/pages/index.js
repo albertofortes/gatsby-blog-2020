@@ -1,31 +1,37 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-//import PropTypes from "prop-types"
-import LayoutHome from "../components/layout-home"
+import Header from "../components/header"
+import HomeGame from "../components/home-game"
 import SEO from "../components/seo"
 
-const IndexPage = ({ children }) => {
+const IndexPage = () => {
   const data = useStaticQuery(graphql`
-    {
+     {
       site {
         siteMetadata {
           title
           role
           description
+          who
+          siteUrl
         }
       }
     }
   `)
 
-  let meta = [];
-
-  console.log('SEO:');
-  console.log(data.site.siteMetadata.title);
-
   return (
-    <LayoutHome>
-      <SEO title={data.site.siteMetadata.title} description={data.site.siteMetadata.description} />
-    </LayoutHome>
+    <>
+      <SEO title="Alberto Fortes" description={data.site.siteMetadata.description} siteUrl={data.site.siteMetadata.siteUrl} />
+      <Header className="header" 
+        siteTitle={data.site.siteMetadata.title}
+        siteRole={data.site.siteMetadata.role}
+        siteDescription={data.site.siteMetadata.description}
+      />
+      <HomeGame 
+        siteRole={data.site.siteMetadata.role}
+        siteDescription={data.site.siteMetadata.who}
+      />
+    </>
   )
 }
 

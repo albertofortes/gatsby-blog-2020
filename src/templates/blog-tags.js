@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
+import Img from "gatsby-image"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 // Components
 import { Link, graphql } from "gatsby"
@@ -14,11 +16,12 @@ const Tags = ({ pageContext, data }) => {
 
   return (
     <Layout>
+      <SEO title="Blog tags" description={data.site.siteMetadata.description} />
       <h2 className="container__title" dangerouslySetInnerHTML={{ __html: tagHeader }} />
       <div className="posts">
         {edges.map(({ node }) => (
           <div key={node.fields.slug} className="post">
-            <Link to={node.fields.slug} title={node.frontmatter.title}><img className="post__image" src={node.frontmatter.banner} alt="" /></Link>
+            <Link to={node.fields.slug} title={node.frontmatter.title}><Img className="post__image" fluid={node.frontmatter.banner.childImageSharp.fluid} /></Link>
             <h3 className="post__title"><Link to={node.fields.slug} title={node.frontmatter.title}>{node.frontmatter.title}{" "}</Link></h3>
             <p className="post__date">{node.frontmatter.date}</p>
             
@@ -57,6 +60,12 @@ export default Tags
 
 export const pageQuery = graphql`
   query($tag: String) {
+    site {
+      siteMetadata {
+        role
+        description
+      }
+    }
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }

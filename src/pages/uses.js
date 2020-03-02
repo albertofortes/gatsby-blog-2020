@@ -26,7 +26,7 @@ const AboutMe = ({ children }) => {
 
   return (
     <Layout>
-      <SEO title={data.site.siteMetadata.title} description={data.site.siteMetadata.description} />
+      <SEO title="Alberto Fortes' uses page" description={data.site.siteMetadata.description} />
       <article className="article">
         <h2 className="article__title article__title--remark t-c">What I use in my day a day as front-end developer.</h2>
         <div className="article__image"><Img fluid={data.file.childImageSharp.fluid} alt="Alberto Fortes, front-end developer office desk" /></div>

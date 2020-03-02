@@ -67,25 +67,10 @@ const particlesOptions = {
 }
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query HeaderQuery {
-      site {
-        siteMetadata {
-          title
-          role
-          description
-        }
-      }
-    }
-  `)
 
   return (
     <>
-      <Header className="header" 
-        siteTitle={data.site.siteMetadata.title}
-        siteRole={data.site.siteMetadata.role}
-        siteDescription={data.site.siteMetadata.description}
-      />
+      <Header className="header" />
       <div className="container">
         {children}
         <Particles params={particlesOptions} className={'particles'} />
