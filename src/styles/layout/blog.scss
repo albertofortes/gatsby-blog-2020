@@ -225,6 +225,64 @@ article.article {
       }
     }
 
+    //
+    // Basic Bootstrap table
+    //
+
+    .table {
+      width: 100%;
+      color: #fff;
+      margin: 1rem 0 2rem;
+
+      th,
+      td {
+        padding: 1rem;
+        vertical-align: top;
+        border-top: .1rem solid $primary-color;
+      }
+
+      thead th {
+        vertical-align: bottom;
+        border-bottom: (2 * .1rem) solid $primary-color;
+        font-weight: $dpFontWeightBold;
+      }
+
+      tbody + tbody {
+        border-top: (2 * .1rem) solid $primary-color;
+      }
+    }
+
+
+    .table-striped {
+      tbody tr:nth-of-type(odd) {
+        background-color: $tertiary-color;
+      }
+    }
+
+    .table-dark {
+      color: #fff;
+      background-color: rgba(0,0,0,.45);
+
+      th,
+      td,
+      thead th {
+        border-color: $quaternary-color;
+        text-align: left;
+      }
+
+      &.table-bordered {
+        border: 0;
+      }
+
+      &.table-striped {
+        tbody tr:nth-of-type(odd) {
+          background-color: rgba(0,0,0,.75);
+        }
+      }
+    }
+
+
+
     .article__cont__cols {
       column-count: 1;
       column-gap: 0;

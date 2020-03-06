@@ -10,26 +10,24 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
     createNodeField({
       node,
       name: `slug`,
       value: slug,
     })
-  }
-}
+  };
+};
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(`
     query {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 2000
-      ) {
+      allMdx(sort: {order: DESC, fields: [frontmatter___date]}, limit: 2000) {
         edges {
           node {
+            id
             fields {
               slug
             }
@@ -42,11 +40,11 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  const posts = result.data.allMarkdownRemark.edges
+  const posts = result.data.allMdx.edges;
 
   posts.forEach(({ node }) => {
     createPage({
-      path: node.fields.slug,
+      path: `/blog/${_.kebabCase(node.fields.slug)}`,
       component: path.resolve(`./src/templates/blog-post.js`),
       context: {
         // Data passed to context is available
@@ -54,19 +52,19 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: node.fields.slug,
       },
     })
-  })
+  });
 
   const tagResult = await graphql(`
-  {
-    allMarkdownRemark(limit: 2000) {
-      group(field: frontmatter___tags) {
-        fieldValue
+    {
+      allMdx(limit: 2000) {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
       }
     }
-  }
-`)
+  `);
 
-  const tags = tagResult.data.allMarkdownRemark.group
+  const tags = tagResult.data.allMdx.group;
 
   tags.forEach(tag => {
     createPage({
@@ -76,5 +74,28 @@ exports.createPages = async ({ graphql, actions }) => {
         tag: tag.fieldValue,
       },
     })
-  })
+  });
+
+  /*const snippetsQuery = await graphql(`
+  {
+    allSitePage(filter: {path: {regex: "/code-snippets-and-tutorials/"}}) {
+      edges {
+        node {
+          path
+          id
+        }
+      }
+    }
+  }
+`);
+
+  snippetsQuery.forEach(page => {
+    createPage({
+      path: `/code-snippets-and-tutorials/index.js`,
+      component: path.resolve(`./src/templates/blog-tags.js`),
+      context: {
+        tag: page,
+      },
+    })
+  });*/
 }

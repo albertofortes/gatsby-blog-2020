@@ -10,6 +10,7 @@ module.exports = {
     siteUrl: 'https://www.albertofortes.com'
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -131,6 +132,7 @@ module.exports = {
         display: 'swap'
       }
     },
+    `gatsby-plugin-mdx`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -157,6 +159,12 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages/blog/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/pages/code-snippets-and-tutorials/`,
       },
     },
     {

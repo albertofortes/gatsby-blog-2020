@@ -1,12 +1,15 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { MDXProvider } from "@mdx-js/react"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import Banner from "gatsby-image"
 import kebabCase from "lodash/kebabCase"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 export default ({ data }) => {
-  let post = data.markdownRemark
+ let post = data.mdx
+  
   let bannerImgFluid = post.frontmatter.banner.childImageSharp.fluid
   return (
     <Layout>
@@ -24,6 +27,11 @@ export default ({ data }) => {
         </p>
         <div className="article__image"><Banner className="post__image" fluid={bannerImgFluid} /></div>
         <div className="article__cont" dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div className="article__cont">
+          <MDXProvider>
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </MDXProvider>
+        </div>
       </article>
     </Layout>
   )
@@ -31,8 +39,8 @@ export default ({ data }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       frontmatter {
         title
         subtitle

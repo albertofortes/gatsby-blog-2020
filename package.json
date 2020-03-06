@@ -5,6 +5,9 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@mdx-js/mdx": "^1.5.7",
+    "@mdx-js/react": "^1.5.7",
+    "babel-plugin-styled-components": "^1.10.7",
     "formik": "^2.1.4",
     "gatsby": "^2.19.18",
     "gatsby-cli": "^2.8.30",
@@ -13,12 +16,14 @@
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-lodash": "^3.1.20",
     "gatsby-plugin-manifest": "^2.2.41",
+    "gatsby-plugin-mdx": "^1.0.75",
     "gatsby-plugin-offline": "^3.0.35",
     "gatsby-plugin-react-helmet": "^3.1.22",
     "gatsby-plugin-robots-txt": "^1.5.0",
     "gatsby-plugin-sass": "^2.1.28",
     "gatsby-plugin-sharp": "^2.4.5",
     "gatsby-plugin-sitemap": "^2.2.27",
+    "gatsby-plugin-styled-components": "^3.1.19",
     "gatsby-remark-images": "^3.1.44",
     "gatsby-remark-prismjs": "^3.3.31",
     "gatsby-source-filesystem": "^2.1.48",
@@ -32,7 +37,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
-    "react-particles-js": "^2.7.1"
+    "react-particles-js": "^2.7.1",
+    "styled-components": "^5.0.1"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
