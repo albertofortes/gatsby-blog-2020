@@ -1,0 +1,30 @@
+//
+// typography
+
+$fontWeightLight:      300;
+$fontWeightRegular:    400;
+$fontWeightMedium:     500;
+$fontWeightBold:       700;
+
+$primaryFont: 'source sans pro', sans-serif;
+$secondaryFont: 'PT Serif', serif;
+
+// 0,1,1,2,3,5,8,13,21,34,55,
+
+:root {
+  font-size: 62.5%;
+  body {
+    font-size: 1.6rem;
+    font-family: $primaryFont;
+  }
+}
+
+// 8/9 major second ratius
+$fontSize1: calc(1.6rem * 8/9);   // 14px
+$fontSize2: calc(1.6rem * 1);               // 16px
+$fontSize3: calc(1.6rem / (8/9)); // 18px
+$fontSize4: calc(#{$fontSize3} / (8/9)); // 20px
+$fontSize5: calc(#{$fontSize4} / (8/9)); // 
+$fontSize6: calc(#{$fontSize5} / (8/9)); //
+$fontSize7: calc(#{$fontSize6} / (8/9)); //
+$fontSize8: calc(#{$fontSize7} / (8/9)); //

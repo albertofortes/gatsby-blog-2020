@@ -1,0 +1,37 @@
+.footer {
+  /*position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;*/
+  text-align: center;
+  padding: 1.5rem $columnSeparation;
+  font: normal $fontWeightLight $fontSize1/1.25 $primaryFont;
+  /*background: linear-gradient(-45deg, #000, #212121);
+  background-size: 500% 500%;
+  animation: bg 15s ease infinite;*/
+  background-color: $bg-footer-color;
+  color: $content-color;
+  min-height: $footerHeight;
+  box-sizing: border-box;
+  border-top: .1rem solid $border-separation-color;
+
+  @media only screen and (min-width: $breakpoint-md) {
+    padding: 1.5rem $columnSeparationLarge;
+    font-size: $fontSize2;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -2.1rem;
+    left:0;
+    right: 0;
+    height: 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,.5), rgba(0,0,0,.0));
+  }
+
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,63 @@
+// responsive mobile first (based in Bootstrap 4 just due to very common)
+$breakpoint-sm:         576px;
+$breakpoint-md:         768px;
+$breakpoint-lg:         992px;
+$breakpoint-xl:         1200px;
+$breakpoint-xxl:        1800px;
+
+// colors
+$blue-color: #002B44;
+$second-color: #004463;
+$cyan-color: #00ffff;
+$cyan-b-color: #bad6d6;
+$yellow-color: #ffe600;
+$third-color: #73a721;
+$red-color: #FF044A;
+$red-b-color: #df0049;
+$red-c-color: #3a0516;
+$grey-color: #ccc;
+$border-separation-color: #e9e9e9;
+$bg-grey-color: lighten(#e9e9e9 , 6%);
+$bg-footer-color: #fafafb;
+$content-color: #172b4d;
+$prismjs-color: $border-separation-color;
+$prismjs-bg-color: #1f364d;
+//
+// Layout
+$columnSeparation:          2rem;
+$columnSeparationLarge:     3rem;
+$headerHeight:              5rem;
+$footerHeight:              5rem;
+$max-container-width:       1400px;
+$max-blog-width:            1200px;
+
+//
+// common
+.sr-only {
+  border: 0; 
+  clip: rect(0 0 0 0); 
+  height: 1px; 
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+//
+// Animations
+@keyframes bg {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}

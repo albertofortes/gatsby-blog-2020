@@ -1,0 +1,160 @@
+header.header {
+  font: normal 100 $fontSize3/1 $primaryFont;
+  padding: $columnSeparation;
+  padding-right: calc(#{$columnSeparation} - 1rem);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end; //space-between
+  align-items: baseline;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px dotted $border-separation-color;
+  background-color: #fff;
+  min-height: $headerHeight;
+  
+  &::after{
+    position: absolute;
+    bottom: -1.6rem;
+    left:0;
+    right: 0;
+    height: 1.5rem;
+    background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,.5), rgba(255,255,255,.0));
+  }
+
+  @media only screen and (min-width: $breakpoint-md) {
+    content: "";
+  }
+
+  h1 {
+    font-weight: 500;
+
+    &,
+    a {
+      color: $blue-color;
+    }
+
+    &.active {
+      display: none;
+    }
+  }
+
+  .header__nav {
+    display: none;
+
+    @media only screen and (min-width: $breakpoint-md) {
+      display: block;
+    }
+
+    > ul {
+      display: inline;
+
+      > li {
+        display: inline-block;
+
+        > a {
+          display: inline-block;
+          padding: 0 1rem;
+          text-decoration: none;
+          color: $blue-color;
+
+          &.active {
+            color: $red-color;
+            text-decoration: none;
+            cursor: default;
+          }
+        }
+      }
+    }
+
+    &.header__nav--opened {
+      display: flex;
+      position: absolute;
+      top: 150%; // bellow header
+      right: 2rem;
+      text-align: right;
+      font: normal 500 $fontSize4/1 $primaryFont;
+      
+
+      > ul {
+        display: block;
+        position: relative;
+
+        > li {
+          display: block;
+          margin-bottom: $columnSeparation;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          a {
+            color: #fff;
+
+            &:active {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  } // header__nav
+
+  .header__mobilebtn {
+    position: absolute;
+    border: none;
+    text-indent: -9999999px;
+    top: 50%;
+    right: $columnSeparation;
+    cursor: pointer;
+    transform-origin: center;
+
+    &,
+    &:before,
+    &:after {
+      width: 2.7rem;
+      height: .3rem;
+      display: block;
+      transition: .5s ease-in-out;
+      background-color: $second-color;
+
+      @media only screen and (min-width: $breakpoint-md) {
+        display: none;
+      }
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    &:before {
+      content: "";
+      top: -.7rem;
+    }
+
+    &:after {
+      top: .7rem;
+    }
+
+    &.header__mobilebtn--opened {
+      display: block;
+      transform: rotate(45deg);
+      box-shadow: 0 0 0 200vw $red-color, 0 0 0 200vh $yellow-color;
+
+      &,
+      &:before,
+      &:after {
+        background: #fff;
+      }
+
+      &:before,
+      &:after {
+        transform: rotate(90deg);
+        top: 0;
+      }
+    }
+  } // .header__mobilebtn 
+}

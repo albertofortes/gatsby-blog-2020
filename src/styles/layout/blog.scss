@@ -1,0 +1,437 @@
+article.article {
+  color: $content-color;
+
+  .container {
+    margin: 0 auto;
+    max-width: $max-container-width;
+  }
+
+  .article__title {
+    margin: 0 0 .5rem;
+    font: normal $fontWeightBold 2rem/1.25 $primaryFont;
+    text-transform: uppercase;
+    color: $red-color;
+
+    @media only screen and (min-width: $breakpoint-md) {
+      font-size: 4rem;
+      width: 60%;
+    }
+  }
+
+  .article__subtitle {
+    margin: 0 0 1rem;
+    font: normal $fontWeightMedium 1.8rem/1.25 $primaryFont;
+    font-style: italic;
+
+    @media only screen and (min-width: $breakpoint-md) {
+      font-size: 2rem;
+      width: 60%;
+    }
+  }
+
+  .article__date {
+    margin: 0 0 2rem;
+    font: normal $fontWeightMedium 1.4rem/1 $primaryFont;
+  }
+
+  .article__tags {
+    font: normal $fontWeightMedium 1.4rem/1 $primaryFont;
+
+    a {
+      color: $second-color;
+    }
+  }
+
+  .article__image {
+    box-sizing: border-box;
+    position: relative;
+    margin: 0;
+    padding: 7rem;
+    width: 100%;
+    background: linear-gradient(to right, #fff 0%, #fff 45%, $bg-footer-color 45%);
+
+   /*&:before,
+   &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -2.5rem;
+    right: -2.5rem;
+    left: 2.5rem;
+    bottom: 2.5rem;
+    background-color: $second-color;
+    opacity: .9;
+    transform: rotate(-.75deg);
+  }
+
+  &::after {
+    z-index: 0;
+    top: -1.25rem;
+    right: -1.25rem;
+    left: 1.25rem;
+    bottom: 1.25rem;
+    background-color: $blue-color;
+    transform: rotate(1.25deg);
+  }*/
+
+    > img {
+      display: block;
+      width: 100%;
+    }
+
+    .gatsby-image-wrapper {
+      width: 60%;
+
+      @media only screen and (min-width: $breakpoint-xl) {
+        width: 50%;
+      }
+    }
+  }
+
+  .article__cont {
+    font: normal $fontWeightMedium 1.8rem/1.55 $primaryFont;
+    margin: 0 auto;
+    max-width: $max-container-width;
+    box-sizing: border-box;
+    padding: $columnSeparation * 2 $columnSeparation $columnSeparation;
+
+    @media only screen and (min-width: $breakpoint-md) {
+      padding: $columnSeparationLarge * 2 $columnSeparationLarge $columnSeparationLarge;
+    }
+
+  /*  @media only screen and (min-width: $breakpoint-md) {
+      margin-left: 10%;
+      margin-right: 10%;
+    }*/
+
+    p, ul, ol, dl, code, pre, blockquote, img {
+      margin-bottom: 1em;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 1em 0;
+      font-weight: 500;
+      font-size: 2.25rem;
+    
+      &.article__claim {
+        margin: 1rem 0 5rem;
+        font: normal $fontWeightMedium 2.5rem/1.5 $secondaryFont;
+        color: $second-color;
+      }
+    }
+
+    hr {
+      margin: 2em 0;
+      border-color: $border-separation-color;
+    }
+
+    em, i {
+      font-style: italic;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    ul {
+      margin: 0 0 1rem 2rem;
+      list-style: square;
+
+      li {
+        margin: .5rem 0;
+      }
+      
+      ul {
+        //margin: 0 0 1rem 2rem;
+      }
+    }
+
+    ol {
+      list-style: decimal;
+      margin: 0 0 1rem 3rem;
+
+      li {
+        margin: .5rem 0;
+      }
+    }
+
+    code {
+      font: normal 400 1.4rem/1.25 "Lucida Console", Monaco, monospace;
+    }
+
+    blockquote {
+      font: normal 400 1.8rem/1.8 $secondaryFont;
+      padding: .5rem 0 .5rem 2rem;
+      border-left: .4rem solid $third-color;
+      margin: 4rem 0;
+      background-color: #fff;
+
+      @media only screen and (min-width: $breakpoint-md) {
+        margin: 4rem 0 4rem -2.6rem;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      text-decoration: underline;
+      color: $second-color;
+
+      &:hover {
+
+      }
+    }
+
+    .article__cont__cols {
+      column-count: 0;
+
+      @media only screen and (min-width: $breakpoint-md) {
+        column-count: 2;
+        column-gap: 2rem;
+        text-align: justify;
+      }
+
+      ul {
+        break-after: always;
+      }
+    }
+  }
+
+}
+
+.posts {
+  display: grid;
+  flex-grow: 1;
+  grid-template-columns: 1fr;
+  max-width: $max-container-width;
+  margin: 0 auto $columnSeparationLarge;
+
+  @media only screen and (min-width: $breakpoint-sm) {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2rem;
+  }
+
+  @media only screen and (min-width: $breakpoint-md) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media only screen and (min-width: $breakpoint-lg) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media only screen and (min-width: $breakpoint-xl) {
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .post {
+    margin: 0 0 2rem;
+    padding: $columnSeparation;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 1rem;
+    font: normal 300 1.7rem/1.5 $primaryFont;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .post__title {
+      margin: 0 1rem .5rem 0;
+      font: normal 500 2rem/1.25 $primaryFont;
+
+      a {
+        color: $blue-color;;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .post__image {
+      width: 100%;
+      margin: 0 0 1rem;
+    }
+
+    .post__date {
+      margin: 0 1rem 1rem 0;
+      font-size: 1.25rem;
+      color: #ccc;
+    }
+
+    .post__excerpt {
+      margin: 0 1rem 0 0;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// Code PRISM:
+
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+ code[class*="language-"],
+ pre[class*="language-"] {
+   color: $prismjs-color;
+   background: none;
+   font: normal 1.4rem/1.5Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+   text-align: left;
+   white-space: pre;
+   word-spacing: normal;
+   word-break: normal;
+   word-wrap: normal;
+ 
+   -moz-tab-size: 4;
+   -o-tab-size: 4;
+   tab-size: 4;
+ 
+   -webkit-hyphens: none;
+   -moz-hyphens: none;
+   -ms-hyphens: none;
+   hyphens: none;
+ }
+ 
+ /* Code blocks */
+ pre[class*="language-"] {
+   padding: 1em;
+   margin: .5em 0;
+   overflow: auto;
+   border-radius: 0.3em;
+ }
+ 
+ :not(pre) > code[class*="language-"],
+ pre[class*="language-"] {
+   background: $prismjs-bg-color;
+ }
+ 
+ /* Inline code */
+ :not(pre) > code[class*="language-"] {
+   padding: .1rem;
+   white-space: normal;
+ }
+ 
+ .token.comment,
+ .token.prolog,
+ .token.doctype,
+ .token.cdata {
+   color: slategray;
+ }
+ 
+ .token.punctuation {
+   color: #f8f8f2;
+ }
+ 
+ .namespace {
+   opacity: .7;
+ }
+ 
+ .token.property,
+ .token.tag,
+ .token.constant,
+ .token.symbol,
+ .token.deleted {
+   color: #f92672;
+ }
+ 
+ .token.boolean,
+ .token.number {
+   color: #ae81ff;
+ }
+ 
+ .token.selector,
+ .token.attr-name,
+ .token.string,
+ .token.char,
+ .token.builtin,
+ .token.inserted {
+   color: #a6e22e;
+ }
+ 
+ .token.operator,
+ .token.entity,
+ .token.url,
+ .language-css .token.string,
+ .style .token.string,
+ .token.variable {
+   color: #f8f8f2;
+ }
+ 
+ .token.atrule,
+ .token.attr-value,
+ .token.function,
+ .token.class-name {
+   color: #e6db74;
+ }
+ 
+ .token.keyword {
+   color: #66d9ef;
+ }
+ 
+ .token.regex,
+ .token.important {
+   color: #fd971f;
+ }
+ 
+ .token.important,
+ .token.bold {
+   font-weight: bold;
+ }
+ .token.italic {
+   font-style: italic;
+ }
+ 
+ .token.entity {
+   cursor: help;
+ }
+ 
+
+pre[class*="language-"].line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+	position: relative;
+	white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 1.75rem;
+	font-size: 100%;
+	left: 1.5rem !important;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+  border-right: 1px solid darken($prismjs-bg-color, 20%);
+  color: #fff;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+
+.line-numbers-rows > span {
+pointer-events: none;
+display: block;
+counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+  content: counter(linenumber);
+  color: #999;
+  display: block;
+  padding-right: 0.8em;
+  text-align: right;
+}
