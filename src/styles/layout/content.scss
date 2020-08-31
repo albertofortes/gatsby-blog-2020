@@ -79,6 +79,7 @@ nav#dot-nav {
 
   &.container--foot {
     background-color: $bg-footer-color;
+    opacity: .9;
     
     .about__home { 
       .about__home__claim {
@@ -508,7 +509,7 @@ nav#dot-nav {
   
   &:before,
   &:after {
-    content: "";
+    content: none;
     width: 15rem;
     height: 15rem;
     position: absolute;
@@ -517,6 +518,10 @@ nav#dot-nav {
     transform: translate(20%, 50%) rotate(45deg);
     z-index: 0;
     background-color: $blue-color;
+
+    @media only screen and (min-width: $breakpoint-lg) {
+      content: "";
+    }
   }
 
   &:after {

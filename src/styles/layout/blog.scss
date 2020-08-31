@@ -46,33 +46,17 @@ article.article {
     box-sizing: border-box;
     position: relative;
     margin: 0;
-    padding: 7rem;
+    padding: 0;
     width: 100%;
     background: linear-gradient(to right, #fff 0%, #fff 45%, $bg-footer-color 45%);
 
-   /*&:before,
-   &:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: -2.5rem;
-    right: -2.5rem;
-    left: 2.5rem;
-    bottom: 2.5rem;
-    background-color: $second-color;
-    opacity: .9;
-    transform: rotate(-.75deg);
-  }
+    @media only screen and (min-width: $breakpoint-md) {
+      padding: 3rem;
+    }
 
-  &::after {
-    z-index: 0;
-    top: -1.25rem;
-    right: -1.25rem;
-    left: 1.25rem;
-    bottom: 1.25rem;
-    background-color: $blue-color;
-    transform: rotate(1.25deg);
-  }*/
+    @media only screen and (min-width: $breakpoint-xl) {
+      padding: 7rem;
+    }
 
     > img {
       display: block;
@@ -80,10 +64,14 @@ article.article {
     }
 
     .gatsby-image-wrapper {
-      width: 60%;
+      width: 100%;
+
+      @media only screen and (min-width: $breakpoint-md) {
+        width: 90%;
+      }
 
       @media only screen and (min-width: $breakpoint-xl) {
-        width: 50%;
+        width: 70%;
       }
     }
   }
@@ -98,11 +86,6 @@ article.article {
     @media only screen and (min-width: $breakpoint-md) {
       padding: $columnSeparationLarge * 2 $columnSeparationLarge $columnSeparationLarge;
     }
-
-  /*  @media only screen and (min-width: $breakpoint-md) {
-      margin-left: 10%;
-      margin-right: 10%;
-    }*/
 
     p, ul, ol, dl, code, pre, blockquote, img {
       margin-bottom: 1em;
@@ -178,10 +161,6 @@ article.article {
     a {
       text-decoration: underline;
       color: $second-color;
-
-      &:hover {
-
-      }
     }
 
     .article__cont__cols {
