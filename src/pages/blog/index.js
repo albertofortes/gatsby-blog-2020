@@ -71,6 +71,7 @@ const BlogIndex = () => {
           <p dangerouslySetInnerHTML={{ __html: data.site.siteMetadata.description }} />
           <p className="who__links">
             <a href="https://www.linkedin.com/in/albertofortes">Linkedin</a>
+            <a href="https://codepen.io/albertofortes">Codepen</a>
             <a href="https://dribbble.com/albertofortes">Dribble</a>
             <a href="https://twitter.com/albertofs">Twitter</a>
             <a href="mailto:albertofortes@gmail.com">Email</a>

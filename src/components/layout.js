@@ -10,7 +10,9 @@ import PropTypes from "prop-types"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Header from "./header";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, page }) => {
+  const footerClass = (page === 'home') ? 'footer footer--home' : 'footer'
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -27,7 +29,7 @@ const Layout = ({ children }) => {
       <main className="main">
         {children}
       </main>      
-      <footer className="footer">
+      <footer className={footerClass} >
         <p>2006 - {new Date().getFullYear()} Alberto Fortes. Coded with React JavaScript, GatsbyJS, HTML5, CSS / SASS, Grunt. | <Link to="/cookies" activeClassName="active">Cookies</Link></p>
       </footer>
     </>

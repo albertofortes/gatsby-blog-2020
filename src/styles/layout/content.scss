@@ -78,12 +78,11 @@ nav#dot-nav {
   }
 
   &.container--foot {
-    background-color: $bg-footer-color;
-    opacity: .9;
+    background: rgba(0,0,0,.6);
     
     .about__home { 
       .about__home__claim {
-        background: -webkit-linear-gradient(45deg, $cyan-color, $blue-color);
+        background: -webkit-linear-gradient(45deg, $red-color,$red-b-color);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
@@ -91,7 +90,7 @@ nav#dot-nav {
       .about__home__cont {
         &,
         a {
-          color: $content-color;
+          color: white;
         }
       }
     }
@@ -136,7 +135,6 @@ nav#dot-nav {
 
     &:before,
     &:after {
-      content: "";
       width: 15rem;
       height: 15rem;
       position: absolute;
@@ -145,6 +143,10 @@ nav#dot-nav {
       transform: translate(20%, -50%) rotate(45deg);
       z-index: 0;
       background-color: $blue-color;
+
+      @media only screen and (min-width: $breakpoint-md) {
+        content: "";
+      }
     }
 
     &:after {
@@ -161,10 +163,15 @@ nav#dot-nav {
     flex-grow: 1;
     max-width: $max-container-width;
     margin: 0 auto 2rem;
-    font-size: 72px;
+    font-size: 2.5rem;
+
+    @media only screen and (min-width: $breakpoint-md) {
+      font-size: 3.5rem;
+    }
 
     .count {
-      font-size: 85%;
+      font-size: 70%;
+      font-weight: 400;
       color: #ccc;
     }
   }

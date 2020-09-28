@@ -12,6 +12,7 @@ const Header = () => {
         <ul>
           <li><Link to="/" activeClassName="active" title="Front-end senior developer with strong background with Javascript, React, CSS, Responsive design, UI development with aesthetic care.">Home</Link></li>
           <li><Link to="/blog/" activeClassName="active" title="Blog about Front-end development, JavaScript, CSS, React, Gatsby, etc">Blog</Link></li>
+          <li><Link to="/projects/" activeClassName="active" title="Some projects for learning and fun">Small projects</Link></li>
           <li><Link to="/uses/" activeClassName="active" title="What I use as front-end JavaScript senior developer">Uses</Link></li>
           <li><Link to="/contact/" activeClassName="active" title="Contact with me">Contact me</Link></li>
         </ul>

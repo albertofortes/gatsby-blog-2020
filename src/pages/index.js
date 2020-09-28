@@ -276,7 +276,7 @@ const IndexPage = (props) => {
   };
 
   return (
-    <Layout>
+    <Layout page="home">
       <SEO title="Alberto Fortes" description={data.site.siteMetadata.description} siteUrl={data.site.siteMetadata.siteUrl} />
       <section className="container container--home">
         {/*<nav id="dot-nav"></nav>*/}

@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+//import Img from "gatsby-image"
 import Particles from 'react-particles-js';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -29,14 +29,6 @@ const Uses = ({ children }) => {
           description
         }
       }
-
-      file(relativePath: { eq: "alberto-fortes-desk.jpeg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
     }
   `);
 
@@ -44,7 +36,11 @@ const Uses = ({ children }) => {
     <Layout>
       <SEO title="Alberto Fortes' uses page" description={data.site.siteMetadata.description} />
       <article className="article">
-      <div className="article__image"><Img fluid={data.file.childImageSharp.fluid} alt="Alberto Fortes, front-end developer office desk" /></div>
+        {/*
+          <div className="article__image">
+            <Img fluid={data.file.childImageSharp.fluid} alt="Alberto Fortes, front-end developer office desk" />
+          </div>
+        */}
         <div className="container">
           <h2 className="article__title">What I use in my day a day as front-end developer.</h2>
           <p className="article__subtitle">Technologies and goods I use for my day a day work as Front-end and UI developer.</p>

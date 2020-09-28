@@ -1,14 +1,7 @@
 .footer {
-  /*position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;*/
   text-align: center;
   padding: 1.5rem $columnSeparation;
   font: normal $fontWeightLight $fontSize1/1.25 $primaryFont;
-  /*background: linear-gradient(-45deg, #000, #212121);
-  background-size: 500% 500%;
-  animation: bg 15s ease infinite;*/
   background-color: $bg-footer-color;
   color: $content-color;
   min-height: $footerHeight;
@@ -31,7 +24,17 @@
   }
 
   a {
-    color: #fff;
+    color: $content-color;
     text-decoration: underline;
+  }
+
+  &.footer--home {
+    border-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+
+    a {
+      color: #fff;
+    }
   }
 }

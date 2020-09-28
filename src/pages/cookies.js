@@ -1,12 +1,12 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
-import Particles from 'react-particles-js';
+//import Img from "gatsby-image"
+//import Particles from 'react-particles-js';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const CookiesPage = ({ children }) => {
-  const particlesOptions = {
+  /*const particlesOptions = {
     "particles": {
       "color": {
         "value": "#172b4d"
@@ -18,7 +18,7 @@ const CookiesPage = ({ children }) => {
         "opacity": 0.35
       }
     }
-  };
+  };*/
 
   const data = useStaticQuery(graphql`
      {
@@ -27,13 +27,6 @@ const CookiesPage = ({ children }) => {
           title
           role
           description
-        }
-      }
-      file(relativePath: { eq: "cookies.png" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
         }
       }
     }
@@ -45,7 +38,6 @@ const CookiesPage = ({ children }) => {
       <article className="article">
         <div className="container">
           <h2 className="article__title article__title--remark t-c">Cookie Policy</h2>
-          <div className="article__image"><Img fluid={data.file.childImageSharp.fluid} alt="Cookie Monster" /></div>
         </div>
         <div className="greyed">
           <div className="article__cont">
@@ -70,7 +62,7 @@ const CookiesPage = ({ children }) => {
             </div>
           </div>
         </div>
-        <Particles params={particlesOptions} className={'particles'} />
+        {/*<Particles params={particlesOptions} className={'particles'} />*/}
       </article>
     </Layout>
   )

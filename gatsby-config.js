@@ -8,6 +8,7 @@ module.exports = {
     author: `@albertofortes`,
     siteUrl: 'https://www.albertofortes.com'
   },
+  pathPrefix: `/test-gatsby`,
   plugins: [
     `gatsby-plugin-sass`,
     {
@@ -26,6 +27,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/src/images/projects`,
       },
     },
     {

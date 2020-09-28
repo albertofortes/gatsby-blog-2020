@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+//import Img from "gatsby-image"
 import { navigate } from 'gatsby-link'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -21,14 +21,6 @@ const ContactPage = ({ children }) => {
           title
           role
           description
-        }
-      }
-
-      file(relativePath: { eq: "office-arcade.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1400) {
-            ...GatsbyImageSharpFluid
-          }
         }
       }
     }
@@ -57,7 +49,6 @@ const ContactPage = ({ children }) => {
     <Layout>
       <SEO title="Alberto Fortes' uses page" description={data.site.siteMetadata.description} />
       <article className="article">
-      <div className="article__image"><Img fluid={data.file.childImageSharp.fluid} alt="Alberto Fortes, front-end developer office desk" /></div>
         <div className="container">
           <h2 className="article__title article__title--remark t-c">I’m Alberto Fortes, Front-end developer. Drop me a few lines!</h2>
         </div>
