@@ -118,7 +118,7 @@ const IndexPage = (props) => {
     const map       = f => xs => xs.map(f);
     const mapi      = f => xs => xs.map((x, i) => f(x)(i));
     const merge     = o1 => o2 => Object.assign({}, o1, o2);
-    const mod       = x => y => ((y % x) + x) % x; // http://bit.ly/2oF4mQ7
+    const mod       = x => y => ((y % x) + x) % x; // modulo http://bit.ly/2oF4mQ7
     const objOf     = k => v => ({ [k]: v });
     const pipe      = (...fns) => x => [...fns].reduce((acc, f) => f(acc), x);
     const prop      = k => o => o[k];
@@ -148,20 +148,58 @@ const IndexPage = (props) => {
 
     // Next values based on state
     const nextMoves = state => state.moves.length > 1 ? dropFirst(state.moves) : state.moves;
-    const nextApple = state => willEat(state) ? rndPos(state) : state.apple;
+    const nextApple = state => willEat(state) ? randomApplePosition(state) : state.apple;
+    
     const nextHead  = state => state.snake.length === 0
-      ? { x: 2, y: 2 }
+      ? { x: state.cols / 2, y: state.rows / 2 }
       : {
         x: mod(state.cols)(state.snake[0].x + state.moves[0].x),
         y: mod(state.rows)(state.snake[0].y + state.moves[0].y)
       };
-    const nextSnake = state => willCrash(state)
+
+    /*function nextHead(state) {
+      if(state.snake.length === 0) {
+        return { x: 2, y: 2 };
+      } else if ((state.snake[0].x >= state.cols - 1) || (state.snake[0].y >= state.rows - 1)) {
+        return { x: 2, y: 2 };
+        setPoints(0);
+      } else {
+        console.log('-----');
+        console.log(state.cols);
+        console.log(state.snake[0].x);
+        console.log(state.moves[0].x);
+        return {
+          x: mod(state.cols)(state.snake[0].x + state.moves[0].x),
+          y: mod(state.rows)(state.snake[0].y + state.moves[0].y)
+        };
+      }
+    }*/
+
+    /*const nextSnake = state => willCrash(state)
       ? []
       : (willEat(state)
         ? [nextHead(state)].concat(state.snake)
         : [nextHead(state)].concat(dropLast(state.snake)));
+      */
+    function collidesOnEdges(state) {
+      if (state.snake.length === 0) return
+      if ((state.snake[0].x >= state.cols - 1) || (state.snake[0].y >= state.rows - 1)) {
+        return true;
+      }
+    }
 
-    const rndPos = function(table) {
+    function nextSnake(state) {
+      if (willCrash(state) || collidesOnEdges(state)) {
+        setPoints(0);
+        return [];
+      } else {
+        return (willEat(state)
+          ? [nextHead(state)].concat(state.snake)
+          : [nextHead(state)].concat(dropLast(state.snake)));
+      }
+    } 
+
+    const randomApplePosition = function(table) {
       playSounds();
       setPoints( prevPoints => prevPoints + 1);
       setPlaySound(false);
