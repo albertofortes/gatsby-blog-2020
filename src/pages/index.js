@@ -323,7 +323,7 @@ const IndexPage = (props) => {
             <div className="home-profile-avatar">
               <Img fluid={data.avatarImage.childImageSharp.fluid} />
             </div>
-            <h1>Hi there, I'm <strong>Alberto</strong>,</h1>
+            <h1>Hi there, I'm <strong>Alberto Fortes</strong>,</h1>
             <h2>a {data.site.siteMetadata.role}</h2>
             <p dangerouslySetInnerHTML={{ __html: data.site.siteMetadata.description }} />
             <p className="who__links">
@@ -375,8 +375,8 @@ const IndexPage = (props) => {
         <div className="about__home">
           <h3 className="about__home__claim">More than 14 years coding as <span className="size-4">JavaScript, CSS, HTML, PHP expert</span> <span className="size-1">that can help you to code the HTML5, CSS3 and JavaScript of your project.</span> I have my own team to help me when the work requires it.</h3>
           <div className="about__home__cont">
-            <p>From 2006 I've been working as freelance front-end developer helping important brands to achieve their projects on time. Working with their own teams or other external agencies to provide expertise view in HTML, CSS, JavaScript, Load optimization, Accessibility, Usability and other related skills.</p>
-            <p>My rate starts at 40€/hour with long time collaborations increasing rate with short term works. Currently I'm working as UI Engineer expert at Avallain, anyway, I'm always open to discussing new opportunities for full time work or freelance clients. Write me a line in the form below, maybe me or my colleagues have some time.</p>
+            <p>From 2006 I've been working as freelance front-end developer helping important brands to achieve their projects on time. Working with their own teams or other external agencies to provide expertise view in HTML, CSS, JavaScript, React, Gatsby, WordPress, Headless CMS, Progressive Web Applications, Load optimization, Accessibility, Usability and other related skills.</p>
+            <p>My rate starts at 40€/hour with long time collaborations increasing rate with short term works. Currently I'm working as UI Engineer expert at Avallain, anyway, I'm always open to discussing new opportunities for full time work or freelance clients. Write me a line to alberto [at] fortesand.co, maybe me or my colleagues have some time.</p>
             <p>I like to do things right, to work with professional people but most important is to be a friendly person, so for me, like good Andalusian spaniard, I like the cordiality and fellowship.</p>
             <p>My specialty is web design and front-end development, I work with Photoshop, Adobe Illustrator or Sketch App and I turn pixels into semantic HTML, CSS and JavaScript code. Take a look to mu uses page to now more about <Link to="/uses/">what I use for working</Link>.</p>
           </div>
