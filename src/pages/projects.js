@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const CookiesPage = ({ children }) => {
+const ProjectsPage = ({ children }) => {
   const data = useStaticQuery(graphql`
      {
       site {
@@ -143,11 +143,11 @@ const CookiesPage = ({ children }) => {
           </div>
 
           <div className="post">
-            <a href="https://codepen.io/albertofortes/full/YMJvrL" target="blank" title="React Pomodoro app">
+            <a href="https://dazzling-goldberg-8c3b8d.netlify.app/" target="blank" title="React Pomodoro app">
               <Img fluid={data.pomodoroImage.childImageSharp.fluid} alt="" className="post__image" title="React Pomodoro app screenshot" />
             </a>
             <h3 className="post__title">
-              <a href="https://codepen.io/albertofortes/full/YMJvrL/" target="blank" title="React Pomodoro app">Animated GIFs APP</a>
+              <a href="https://dazzling-goldberg-8c3b8d.netlify.app//" target="blank" title="React Pomodoro app">Animated GIFs APP</a>
             </h3>
             <p className="post__date">2019</p>
             <div className="post__excerpt">A simple React Pomodoro App.</div>            
@@ -170,4 +170,4 @@ const CookiesPage = ({ children }) => {
   )
 }
 
-export default CookiesPage
+export default ProjectsPage
