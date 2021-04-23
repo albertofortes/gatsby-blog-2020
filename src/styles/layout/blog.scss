@@ -12,6 +12,7 @@ article.article {
     text-transform: uppercase;
     color: $red-color;
     //text-shadow: .5rem 0 0 white;
+    background-color: rgba(255,255,255,.5);
 
     @media only screen and (min-width: $breakpoint-md) {
       font-size: 4rem;
@@ -23,7 +24,7 @@ article.article {
     margin: 0 0 1rem;
     font: normal $fontWeightMedium 1.8rem/1.25 $primaryFont;
     font-style: italic;
-    text-shadow: .1rem .2rem 0 white, -.1rem 0 0 white;
+    background-color: rgba(255,255,255,.5);
 
     @media only screen and (min-width: $breakpoint-md) {
       font-size: 2rem;
@@ -32,14 +33,16 @@ article.article {
   }
 
   .article__date {
+    display: inline-block;
     margin: 0 0 2rem;
     font: normal $fontWeightMedium 1.4rem/1 $primaryFont;
-    //text-shadow: .1rem .2rem 0 white, -.1rem 0 0 white;
+    background-color: rgba(255,255,255,.5);
   }
 
   .article__tags {
+    display: table;
     font: normal $fontWeightMedium 1.4rem/1 $primaryFont;
-    //text-shadow: .1rem .2rem 0 white, -.1rem 0 0 white;
+    background-color: rgba(255,255,255,.5);
 
     a {
       color: $second-color;
