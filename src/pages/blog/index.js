@@ -27,7 +27,10 @@ const BlogIndex = () => {
 
       allMarkdownRemark(
         sort: {
-          fields: [frontmatter___date]
+          fields: [
+            frontmatter___update, 
+            frontmatter___title
+          ],
           order: DESC
         }
       ) 

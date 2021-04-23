@@ -11,7 +11,7 @@ article.article {
     font: normal $fontWeightBold 2rem/1.25 $primaryFont;
     text-transform: uppercase;
     color: $red-color;
-    text-shadow: .5rem 0 0 white;
+    //text-shadow: .5rem 0 0 white;
 
     @media only screen and (min-width: $breakpoint-md) {
       font-size: 4rem;
@@ -34,12 +34,12 @@ article.article {
   .article__date {
     margin: 0 0 2rem;
     font: normal $fontWeightMedium 1.4rem/1 $primaryFont;
-    text-shadow: .1rem .2rem 0 white, -.1rem 0 0 white;
+    //text-shadow: .1rem .2rem 0 white, -.1rem 0 0 white;
   }
 
   .article__tags {
     font: normal $fontWeightMedium 1.4rem/1 $primaryFont;
-    text-shadow: .1rem .2rem 0 white, -.1rem 0 0 white;
+    //text-shadow: .1rem .2rem 0 white, -.1rem 0 0 white;
 
     a {
       color: $second-color;
@@ -146,6 +146,10 @@ article.article {
       p:last-child {
         margin-bottom: 0;
       }
+    }
+
+    img {
+      max-width: 100%;
     }
 
     a {

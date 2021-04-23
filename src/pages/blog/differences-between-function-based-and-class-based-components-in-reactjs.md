@@ -1,8 +1,8 @@
 ---
 title: Diferences between function based and class based components in React JS
-subtitle: State and Lifecycle in React. Container and presentational components.
+subtitle: State and Lifecycle in React. Container and presentational components. React interview cheatsheet series
 date: 2020-02-07
-update: 2020-02-07
+update: 2021-23-04
 banner: ../../images/blog/reactjs.jpg
 tags: ['JavaScript', 'React', 'reactjs']
 ---
