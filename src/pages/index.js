@@ -164,10 +164,6 @@ const IndexPage = (props) => {
         return { x: 2, y: 2 };
         setPoints(0);
       } else {
-        console.log('-----');
-        console.log(state.cols);
-        console.log(state.snake[0].x);
-        console.log(state.moves[0].x);
         return {
           x: mod(state.cols)(state.snake[0].x + state.moves[0].x),
           y: mod(state.rows)(state.snake[0].y + state.moves[0].y)
@@ -293,18 +289,14 @@ const IndexPage = (props) => {
       let snakePositionY = state.snake[0]['y'];
 
         if (relativeY < snakePositionY) {
-          console.log('NORTH');
           state = enqueue(state, NORTH);
         } else if (relativeY > snakePositionY) {
-          console.log('SOUTH');
           state = enqueue(state, SOUTH);
         } 
         
         if (relativeX > snakePositionX) {
-          console.log('EAST');
           state = enqueue(state, EAST);
         } else if (relativeX < snakePositionX) {
-          console.log('WEST4');
           state = enqueue(state, WEST);
         }
     }, false);

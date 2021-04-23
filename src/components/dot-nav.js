@@ -13,7 +13,6 @@ export const dotNav = (elem, easing) => {
 
   //  add the dots
   const buildNav = () => {
-    console.log('CREACIOn');
     for (let i = 0; i < allSecs.length; i++) {
       const dotCreate = document.createElement('a');
       dotCreate.id = 'dot-' + i;
@@ -44,9 +43,7 @@ export const dotNav = (elem, easing) => {
   }
 
   if(nav) {
-    console.log('IF');
-    console.log(nav);    
-    //dotActive();
+    dotActive();
     window.onscroll = function(){ dotActive(); };
   }
 

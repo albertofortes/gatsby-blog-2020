@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Front-End freelance developer working remotely as contractor for the best companies.`,
     role: `Front-End developer building cool websites and apps as contractor for Avallain and Warner Music Spain.`,
-    description: `Front-End / UI developer with more than 14 years of experience. Expertise with CSS, JavaScript, React, GatsbyJS, Headless WordPress and theme developing from scratch… I have a team of freelancers available to hire @fortesand.co`,
-    who: `<p>Along side more than 14 years I've been doing many fast and SEO on Page websites. I develop HTML5 and CSS and JavaScript (Vanilla, React...)  front-end code in my day a day, applying the latest techniques to achieve page load optimal time and clear and easy to read code. As front-end HTML, CSS and JavaScript and with a past background as UX and web designer I've coded along these years for great end customers (mine or white-label for agencies).</p>
+    description: `Front-End / UI developer with more than 15 years of experience. Expertise with CSS, JavaScript, React, GatsbyJS, JamStack, Headless WordPress and theme developing from scratch…`,
+    who: `<p>Along side more than 15 years I've been doing many fast and SEO on Page websites. I develop HTML5 and CSS and JavaScript (Vanilla, React...)  front-end code in my day a day, applying the latest techniques to achieve page load optimal time and clear and easy to read code. As front-end HTML, CSS and JavaScript and with a past background as UX and web designer I've coded along these years for great end customers (mine or white-label for agencies).</p>
     <p>Currently I'm Front-end team lead at Avallain, working for the top Press companies. Also I'm lead developer at my own small studio working with side projects and important customers like Warner Music Spain.</p>`,
     author: `@albertofortes`,
     siteUrl: 'https://www.albertofortes.com'
