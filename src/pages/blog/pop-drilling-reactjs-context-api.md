@@ -2,14 +2,15 @@
 title: What is Propdrilling? and how to solve it using Context API
 subtitle: React interview cheatsheet series
 date: 2021-23-04
-update: 2021-23-04
+update: 2021-24-04
 banner: ../../images/blog/reactjs.jpg
 tags: ['JavaScript', 'ReactJS', 'Interview Question series']
 ---
 
-As we know, the props are the data we pass -or can access- from the top-level components to its child components. Ans also we know that React is unidirectional.
+As we know, the props are the data we pass -or can access- from the top-level components to its child components. And, also we know that React data flow is unidirectional.
 
-**Prop drilling**, also know as *threading*, is the process where the devs pass the props down to an specific child component, but in between, other components, between the origin and the destiny, get the props just to pass it down the chain.
+**Prop drilling**, also know as *threading*, is the process where the devs pass the props down to an specific child component, but in between, other components, between the origin and the destiny, get the props just to pass it down the chain. 
+So *props drilling* issue is when passing this data from the parent component (A) to a children component (Z), but in the middle this data pass through many components in t between A and Z that doesn't need that data (props) excepts to communicate A and Z.
 
 Props drilling is not a problem at all if we have a couple or three levels, but imagine if we have dozens of levels... That's the problem.
 
@@ -53,7 +54,7 @@ The Provider component accepts a value prop to be passed to consuming components
 All consumers that are descendants of a Provider will re-render whenever the Provider’s value prop changes.
 
 ```javascript
-import React from 'react';
+import React, { Component } from "https://cdn.skypack.dev/react";
 
 const AppContext = React.createContext();
 
@@ -76,28 +77,43 @@ class AppProvider extends Component {
       </AppContext.Provider>
     );
   }
-}
+};
 
 const TeamList = () => (
-  <div className="product-list">
+  <div>
     <h2>Real Betis Balompié:</h2>
     <Players />
   </div>
+);
+
+const Player = props => (
+  <tr>    
+    <td>{props.number}</td>
+    <td>{props.name}</td>
+    <td>{props.position}</td>
+  </tr>
 );
 
 const Players = () => (
   <AppContext.Consumer>
     {context => (
       <div>
-          <h4>Players:</h4>
-          {Object.keys(context.teamMembers).map(playerID => (
-              <Player
-                key={playerID}
-                number={context.teamMembers[playerID].number}
-                name={context.teamMembers[playerID].name}
-                position={context.teamMembers[playerID].position}
-              />
-          ))}
+        <h4>Players:</h4>
+        <table>
+          <tr>
+            <th>Number</th>
+            <th>Name</th>
+            <th>Positon</th>
+          </tr>
+
+          {Object.keys(context.players).map(key => {
+            return <Player key={context.players[key]}
+              number={context.players[key].number} 
+              name={context.players[key].name} 
+              position={context.players[key].position}
+            />
+          })}
+        </table>
       </div>
     )}
   </AppContext.Consumer>
@@ -113,10 +129,15 @@ class App extends Component {
       </AppProvider>
      );
   }
-}
+};
 
-export default App
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
 ```
+See the code working at [codepen](https://codepen.io/albertofortes/pen/WNRPvbY)
+
 ### 2. Composition
 
 Composition is an easy but powerful tool to reuse code and share props between components.
@@ -137,5 +158,7 @@ const loreIpsum = () => (
 );
 
 ```
+
+About composition and props drilling in React, there is an excellent article in Medium written by my old mate Bolu, [Composition: An Alternative to Props Drilling in React](https://javascript.plainenglish.io/composition-in-react-f02afe24bc46 "Before reaching for context or libraries, to manage Props Drilling, think about composition"), better reading it, it's so clear.
 
 See also: [Props Drilling In React.Js](https://medium.com/front-end-weekly/props-drilling-in-react-js-723be80a08e5)
