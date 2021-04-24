@@ -4,7 +4,7 @@ subtitle: React interview cheatsheet series
 date: 2021-23-04
 update: 2021-23-04
 banner: ../../images/blog/reactjs.jpg
-tags: ['JavaScript', 'ReactJS', 'Interview Question series']
+tags: ['JavaScript', 'ReactJS', 'Interview Question series', 'React fundamental topics']
 ---
 
 The React lifecycle (based on v16.4.2) is divided in three main areas: mounting, updating, and unmounting.

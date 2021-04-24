@@ -4,7 +4,7 @@ subtitle: State and Lifecycle in React. Container and presentational components.
 date: 2020-02-07
 update: 2021-23-04
 banner: ../../images/blog/reactjs.jpg
-tags: ['JavaScript', 'React', 'reactjs']
+tags: ['JavaScript', 'ReactJS', 'Interview Question series', 'React fundamental topics']
 ---
 
 According to the official [ReactJS documentation](https://reactjs.org/docs/components-and-props.html) we can define React components in two ways:
