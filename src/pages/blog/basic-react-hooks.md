@@ -56,7 +56,11 @@ const AppContext = React.createContext(greetings.hi);
 function Display() {
   const value = useContext(AppContext);
 
-  return <div>{value}.</div>;
+  return (
+    <div>
+      <p>{value}</p>   
+    </div>
+  );
 }
 
 const App = () => {
