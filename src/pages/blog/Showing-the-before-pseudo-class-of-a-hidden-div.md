@@ -1,8 +1,8 @@
 ---
 title: Showing the before pseudo-class of a hidden div.
 subtitle: A CSS trick to show before or after pseudoclass in a hidden div
-date: 2019-21-02
-update: 2020-21-02
+date: 2020-02-21
+update: 2020-02-21
 banner: ../../images/blog/css-html.jpg
 tags: ['CSS', 'snippets', 'codepen']
 ---

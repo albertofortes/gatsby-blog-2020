@@ -1,8 +1,8 @@
 ---
 title: Basic react Hooks
 subtitle: React interview cheatsheet series
-date: 2021-24-04
-update: 2021-24-04
+date: 2021-04-24
+update: 2021-04-24
 banner: ../../images/blog/reactjs.jpg
 tags: ['JavaScript', 'ReactJS', 'Interview Question series', 'React fundamental topics']
 ---
@@ -14,6 +14,10 @@ The basic hooks are:
 * [useState()](https://reactjs.org/docs/hooks-state.html "Using the State Hook"). Which replaces the state of the class component types.
 * [useEffects()](https://reactjs.org/docs/hooks-effect.html "Using the Effect Hook"). Which replaces the lifecycle methods like componentDidMount, componentDidUpdate, componentWillUnmount of the class component types.
 * [useContext()](https://reactjs.org/docs/hooks-reference.html#usecontext "Using the Context Hook"). Which is used in Context API
+
+Another advanced hooks are:
+
+* [useRef()](/react-refs-in-a-glance "Quick view about React refs")
 
 The logic behind useState and useEffect is pretty clear and better adding just a code block that will explain how they work:
 

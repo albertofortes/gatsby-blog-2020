@@ -1,10 +1,10 @@
 ---
 title: What is Prop drilling? and how to solve it using Context API
 subtitle: React interview cheatsheet series
-date: 2021-23-04
-update: 2021-24-04
+date: 2021-04-23
+update: 2021-04-23
 banner: ../../images/blog/reactjs.jpg
-tags: ['JavaScript', 'ReactJS', 'Interview Question series', 'React fundamental topics']
+tags: ['JavaScript', 'ReactJS', 'Interview Question series', 'React fundamental topics', 'React intermediare topics']
 ---
 
 As we know, the props are the data we pass -or can access- from the top-level components to its child components. And, also we know that React data flow is unidirectional.

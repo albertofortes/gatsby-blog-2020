@@ -1,8 +1,8 @@
 ---
 title: Class component's lifecycle
 subtitle: React interview cheatsheet series
-date: 2021-23-04
-update: 2021-23-04
+date: 2021-04-23
+update: 2021-04-23
 banner: ../../images/blog/reactjs.jpg
 tags: ['JavaScript', 'ReactJS', 'Interview Question series', 'React fundamental topics']
 ---

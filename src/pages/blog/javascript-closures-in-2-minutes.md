@@ -1,8 +1,8 @@
 ---
 title: JavaScript Closures in 2 minutes
 subtitle: React interview cheatsheet series
-date: 2021-24-04
-update: 2021-24-04
+date: 2021-04-24
+update: 2021-04-24
 banner: ../../images/blog/reactjs.jpg
 tags: ['JavaScript', 'Interview Question series', 'JavaScript fundamental topics']
 ---

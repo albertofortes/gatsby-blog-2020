@@ -78,11 +78,9 @@ nav#dot-nav {
 
   &.container--post {
     padding: $columnSeparation;
-    padding-top: 32vh;
 
     @media only screen and (min-width: $breakpoint-md) {
       padding: $columnSeparationLarge;
-      padding-top: 35vh;
     }
   }
 

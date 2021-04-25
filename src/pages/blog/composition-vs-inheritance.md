@@ -1,8 +1,8 @@
 ---
 title: Composition vs Inheritance
 subtitle: React interview cheatsheet series
-date: 2021-24-04
-update: 2021-24-04
+date: 2021-04-24
+update: 2021-04-24
 banner: ../../images/blog/reactjs.jpg
 tags: ['JavaScript', 'ReactJS', 'Interview Question series', 'React fundamental topics']
 ---
